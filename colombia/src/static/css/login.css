@@ -1,0 +1,35 @@
+.access{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    height: 100%;
+    width: 100%;
+    background-image: url("/src/static/images/login.jfif");
+    background-size: cover;
+    top:0;
+    left:0;
+}
+.login-data {
+    width: 55%;
+    height: 55%;
+    background-color: #61C1F6;
+    
+}
+.login-form {
+    height: 75%;
+    width: 95%;
+    background-color: #369DD7;
+    margin: 2.5%;
+}
+
+#forgot-password {
+    text-decoration: none;
+}
+
+#forgot-password p {
+    text-align: center;
+    margin-bottom: 2.5%;
+    color:white;
+    height: 5%;
+}
