@@ -14,7 +14,7 @@ function Login() {
             <div className= "login-form">
                 <TextField label="Usuario" variant="outlined"  sx={textFieldThemeLogin}/>
                 <TextField label="Contraseña" variant="outlined"  sx={textFieldThemeLogin}/>
-                <Button variant="contained" sx={buttonThemeLogin}>Iniciar Sesión</Button>
+                <Button variant="contained" sx={buttonThemeLogin} component={Link} to="/home" >Iniciar Sesión</Button>
             </div>
             <Link to="/f" id="forgot-password">
                 <p>¿Olvidaste tu contraseña?</p>

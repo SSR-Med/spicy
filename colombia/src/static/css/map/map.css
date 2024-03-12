@@ -25,6 +25,7 @@
     height: 10%;
     background-color: #369DD7;
     border: 1px solid black;
+    cursor: pointer;
 }
 .home-map h1{
     color:white;
