@@ -1,7 +1,7 @@
 //css
 import "/src/static/css/map/map.css"
-// Styles
-import { createMapDiv } from "../../components/MapComponent"
+// Components
+import { createMapDiv } from "../../components/map/MapComponent"
 
 function Map(){
     return (

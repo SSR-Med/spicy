@@ -10,6 +10,7 @@ import {
 import Login from "./routes/access/Login"
 import Register from "./routes/access/Register"
 import Map from "./routes/map/Map"
+import Map_Level from './routes/map/Map_Level'
 
 // Create a router (paths are relative to the root of the project)
 const router = createBrowserRouter([
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
     path: "/map",
     element: <Map />,
   },
+  {
+    path: "/map/:levelName",
+    element: <Map_Level />,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

@@ -1,0 +1,62 @@
+.city-map{
+    position:absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url("/src/static/images/map/bellokistan.jfif");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    top:0;
+    left:0;
+}
+
+.city-map .home-city {
+    align-self: normal;
+    margin: 1% 0 0 1%;
+    width: 15%;
+    height: 10%;
+    background-color: #369DD7;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.home-city h1{
+    color:white;
+    position: relative;
+    top: 50%;
+    margin: 0 0 0 5%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.level-city {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75%;
+    height: 65%;
+    background-color: #61C1F6;
+    border: 2px solid black;
+    overflow-y: scroll;
+}
+
+.summary-level {
+    height: 15%;
+    width: 95%;
+    margin: 0% 2.5% 2.5% 2.5%;
+    background-color: #369DD7;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    align-items: center;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.summary-level p{
+    color: white;
+    font-size: 2vw;
+    margin-left:2.5%;
+}
+
+.summary-level:first-child {
+    margin-top: 2.5%;
+}
