@@ -8,6 +8,7 @@ import {
 
 // Modules
 import Login from "./routes/access/Login"
+import Register from "./routes/access/Register"
 
 // Create a router (paths are relative to the root of the project)
 const router = createBrowserRouter([
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
     path: "/",
     element: <Login />,
   },
+  {
+    path: "/register",
+    element: <Register />,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

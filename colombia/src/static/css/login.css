@@ -17,11 +17,13 @@
     
 }
 .login-form {
-    height: 75%;
+    height: 70%;
     width: 95%;
     background-color: #369DD7;
     margin: 2.5%;
 }
+
+
 
 #forgot-password {
     text-decoration: none;
