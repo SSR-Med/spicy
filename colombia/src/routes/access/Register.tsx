@@ -16,6 +16,9 @@ function Register() {
                 <TextField label="Contraseña" variant="outlined"  sx={textFieldThemeLogin}/>
                 <Button variant="contained" sx={buttonThemeLogin}>Registrarse</Button>
             </div>
+            <Link to="/f" id="forgot-password">
+                <p>¿Olvidaste tu contraseña?</p>
+            </Link>
             <Button variant="contained" sx= {buttonThemeRegister} component={Link} to="/">Iniciar Sesión</Button>
         </div>
     </div>
