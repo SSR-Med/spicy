@@ -9,6 +9,7 @@ import {
 // Modules
 import Login from "./routes/access/Login"
 import Register from "./routes/access/Register"
+import Map from "./routes/map/Map"
 
 // Create a router (paths are relative to the root of the project)
 const router = createBrowserRouter([
@@ -19,7 +20,11 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register />,
-  }
+  },
+  {
+    path: "/map",
+    element: <Map />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
