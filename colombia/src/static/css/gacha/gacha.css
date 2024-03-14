@@ -1,0 +1,52 @@
+.gacha{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin:0;
+    left:0;
+    top:0;
+}
+.gacha-main{
+    width: 100%;
+    height: 90%;
+    background-image: url("/src/static/images/gacha/gacha.jfif");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    
+}
+
+.gacha-popular{
+    position: absolute;
+    top:35%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: 50%;
+    height: 70%;
+}
+
+.gacha-popular img{
+    position:relative;
+    width: 100%;
+    height: 80%;
+}
+.gacha-popular h1{
+    font-size: 2.5em;
+    color: white;
+}
+
+.gacha-buttons{
+    position: relative;
+    z-index: 2;
+    display:flex;
+    justify-content: space-between;
+}
+
+.gacha-arrows{
+    position: absolute;
+    top: 30%;
+    height: 30%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

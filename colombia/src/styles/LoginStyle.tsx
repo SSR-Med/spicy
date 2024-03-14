@@ -21,7 +21,7 @@ export const buttonThemeLogin = {
     margin: "2.5% 25% 2.5% 25%",
     border: '1px solid black',
     '&:hover': { // Target hover state
-        backgroundColor: '#61C1F6', // Change background color to red on hover
+        backgroundColor: '#61C1F6', 
     },
     textTransform: "none"
 }
@@ -33,7 +33,7 @@ export const buttonThemeRegister = {
     margin: "0% 25% 0 25%",
     border: '1px solid black',
     '&:hover': { // Target hover state
-        backgroundColor: '#369DD7', // Change background color to red on hover
+        backgroundColor: '#369DD7', 
     },
     textTransform: "none"
 

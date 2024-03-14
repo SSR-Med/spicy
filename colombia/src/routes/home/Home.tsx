@@ -20,12 +20,7 @@ function Home(){
                     {createHomeNew("Noticia de prueba")}
                 </div>
             </main>
-            <footer className="home-footer">
-                {createHomeFooter("Inicio", "home")}
-                {createHomeFooter("Historia", "map")}
-                {createHomeFooter("Unidades", "")}
-                {createHomeFooter("Gacha", "")}
-            </footer>
+            {createHomeFooter()}
         </div>
     )
 }

@@ -12,6 +12,7 @@ import Register from "./routes/access/Register"
 import Map from "./routes/map/Map"
 import Map_Level from './routes/map/Map_Level'
 import Home from "./routes/home/Home"
+import Gacha from "./routes/gacha/Gacha"
 
 // Create a router (paths are relative to the root of the project)
 const router = createBrowserRouter([
@@ -34,7 +35,11 @@ const router = createBrowserRouter([
   {
     path: "/home",
     element: <Home />,
-  }
+  },
+  {
+    path: "/gacha",
+    element: <Gacha />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
