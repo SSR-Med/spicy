@@ -5,13 +5,13 @@ import { useState } from "react";
 import "/src/static/css/gacha/gacha.css"
 // Components
 import { createHomeFooter } from "../../components/home/HomeComponent"
-import { createGachaElement } from "../../components/gacha/GachaComponent"
+import { createGachaElement, staticUrlCard } from "../../components/gacha/GachaComponent"
 // Themes
 import { arrowThemeGacha } from "../../styles/gacha/GachaStyle"
 export default function Gacha(){
     const availableGacha = [
-        {name: "Monita china destacada", path: "/src/static/images/gacha/monita.png", id: 0},
-        {name: "Chi cheñor", path: "/src/static/images/gacha/platano.jfif", id: 1}
+        {name: "Monita china destacada", path: staticUrlCard("monita.png"), id: 0},
+        {name: "Chi cheñor", path: staticUrlCard("platano.jfif"), id: 1}
     ];
     const [currentGacha, setCurrentGacha] = useState(
         availableGacha[0]

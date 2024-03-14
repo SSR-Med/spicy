@@ -1,0 +1,50 @@
+.team{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin:0;
+    left:0;
+    top:0;
+}
+
+.team-main{
+    width: 100%;
+    height: 90%;
+    background-image: url("/src/static/images/team/team.jfif");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.team-main-container{
+    width: 95%;
+    height: 70%;
+    background-color: #61C1F6;
+}
+
+.team-secondary-container{
+    width: 95%;
+    height: 80%;
+    margin: 2.5% 2.5% 2.5% 2.5%;
+    background-color: #369DD7;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+}
+
+.team-secondary-container .team-card{ 
+    margin:5%;
+}
+.team-secondary-container .team-card img{
+    width: 100%;
+    height: 100%;
+    cursor:pointer;
+    border: 4px solid black;
+}
+.team-main-pagination {
+    display: flex;
+    justify-content: center;
+}

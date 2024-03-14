@@ -23,7 +23,7 @@ export function createHomeFooter(){
         <div className="home-footer">
             {createHomeFooterElement("Inicio", "home")}
             {createHomeFooterElement("Historia", "map")}
-            {createHomeFooterElement("Unidades", "")}
+            {createHomeFooterElement("Unidades", "team")}
             {createHomeFooterElement("Gacha", "gacha")}
         </div>
     )
