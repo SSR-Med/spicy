@@ -10,8 +10,8 @@ import { createGachaElement, staticUrlCard } from "../../components/gacha/GachaC
 import { arrowThemeGacha } from "../../styles/gacha/GachaStyle"
 export default function Gacha(){
     const availableGacha = [
-        {name: "Monita china destacada", path: staticUrlCard("monita.png"), id: 0},
-        {name: "Chi cheñor", path: staticUrlCard("platano.jfif"), id: 1}
+        {name: "Monita china destacada", path: staticUrlCard("monita"), id: 0},
+        {name: "Chi cheñor", path: staticUrlCard("platano"), id: 1}
     ];
     const [currentGacha, setCurrentGacha] = useState(
         availableGacha[0]

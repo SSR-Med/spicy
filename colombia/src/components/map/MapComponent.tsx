@@ -1,11 +1,9 @@
-export function createMapDiv(image: string, city: string, hidden:boolean = false) {
+// Redirect
+export function handleRedirect(url:string,city: string) {
+  window.location.href = url+city;
+}
 
-    //Redirect to the city
-    const handleRedirect = () => {
-      if (!hidden) {
-        window.location.href = "/map/"+city;
-      }
-    };
+export function createMapDiv(image: string, city: string, hidden:boolean = false) {
     // MapDivs
     return (
       <div className="map" style={
@@ -15,7 +13,7 @@ export function createMapDiv(image: string, city: string, hidden:boolean = false
             filter: hidden ? "brightness(50%)" : "brightness(100%)",
             border: "4px solid black",
             cursor: hidden ? "default" : "pointer"
-        }} onClick={handleRedirect}>
+        }} onClick={() => handleRedirect("/map/",city)}>
         <div className="map-flex">
             <h1>{city}</h1>
             {hidden && 

@@ -15,5 +15,5 @@ export function createGachaElement(name:string, path:string,id:number){
     )
 }
 export function staticUrlCard(image: string) {
-    return "/src/static/images/cards/" + image;
+    return "/src/static/images/cards/" + image + ".png";	
 }

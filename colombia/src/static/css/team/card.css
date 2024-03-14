@@ -1,0 +1,54 @@
+.card-secondary-container{
+    width: 95%;
+    height: 90%;
+    margin: 2.5%;
+    background-color: #369DD7;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    color:white;
+}
+
+.card-image{
+    margin:2.5%;
+    width: 40%;
+    height: 90%;
+}
+
+.card-image img{
+    width: 100%;
+    height: 100%;
+    border: 4px solid black;
+}
+
+.card-name{
+    width: 50%;
+    height: 20%;
+    margin: 2.5% 2.5% 0 2.5%;
+    border: 2px solid black;
+    background-color: #61C1F6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-name h1{
+    margin: 5%;
+}
+.card-attributes {
+    width: 50%;
+    height: 60%;
+    margin: 2.5%;
+    background-color: #61C1F6;
+    border: 2px solid black;
+}
+
+.card-attribute-game{
+    position: relative;
+    width: 100%;
+    height: 60%;
+    margin: 2.5%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}

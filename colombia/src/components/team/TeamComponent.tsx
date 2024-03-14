@@ -1,11 +1,17 @@
-// Dependencies
+// Components
 import { staticUrlCard } from "../gacha/GachaComponent"
+import { handleRedirect } from "../map/MapComponent"
+
+//Get only the name of the image
+function getCardName(image: string){
+    return image.replace(".","@");
+}
 
 // Create card
 export function createTeamCard(urlImage: string){
     return (
         <div className="team-card">
-            <img src={staticUrlCard(urlImage)}></img>
+            <img src={staticUrlCard(urlImage)} onClick={() => handleRedirect("/team/",getCardName(urlImage))}></img>
         </div>
     )
 }
@@ -17,18 +23,18 @@ export function createTeamCardGroup(page: number){
     const pages: { [key: number]: { info: { name: string }[] } } = {
         1: {
             info: [
-                { name: "monita.png" },
-                { name: "platano.jfif" },
-                { name: "burra.jfif" },
-                { name: "aguardiente.jfif" }
+                { name: "monita" },
+                { name: "platano" },
+                { name: "burra" },
+                { name: "aguardiente" }
             ]
         },
         2: {
             info: [
-                { name: "vive100.jfif" },
-                { name: "torta_envinada.jfif" },
-                { name: "te_valeriana.jfif" },
-                { name: "perrito.jpg" }
+                { name: "vive_100" },
+                { name: "torta_envinada" },
+                { name: "te_valeriana" },
+                { name: "perrito" }
             ]
         }
     };

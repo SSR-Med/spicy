@@ -23,12 +23,13 @@
     width: 95%;
     height: 70%;
     background-color: #61C1F6;
+    border: 2px solid black;
 }
 
 .team-secondary-container{
     width: 95%;
     height: 80%;
-    margin: 2.5% 2.5% 2.5% 2.5%;
+    margin: 2.5%;
     background-color: #369DD7;
     display: grid;
     grid-template-columns: repeat(4, 1fr);

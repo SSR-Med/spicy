@@ -14,6 +14,7 @@ import Map_Level from './routes/map/Map_Level'
 import Home from "./routes/home/Home"
 import Gacha from "./routes/gacha/Gacha"
 import Team from "./routes/team/Team"
+import Card from "./routes/team/Card"
 
 // Create a router (paths are relative to the root of the project)
 const router = createBrowserRouter([
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
   {
     path: "/team",
     element: <Team />,
+  },
+  {
+    path: "/team/:cardName",
+    element: <Card />,
   }
 ]);
 
