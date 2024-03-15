@@ -1,13 +1,15 @@
 // Dependencies
 import { Button } from "@mui/material"
+import { useState } from "react"
 // Css
 import "/src/static/css/team/card.css"
 // Components
 import { createHomeFooter } from "../../components/home/HomeComponent"
-import { getImage, getName } from "../../components/team/CardComponent"
+import { getImage, getName, LevelUp } from "../../components/team/CardComponent"
 // Styles
 import { buttonLevelCard } from "../../styles/team/CardStyle"
 export default function Card(){
+    const [showLevelUp,setShowLevelUp] = useState(false);
     return (
         <div className="team">
             <div className="team-main">
@@ -27,10 +29,11 @@ export default function Card(){
                                 <h1>Vida: 50</h1>
                                 <h1>Evasión: 22</h1>
                             </div>
-                            <Button variant="contained" sx = {buttonLevelCard}>Subir de Nivel</Button>
+                            <Button variant="contained" onClick = {() => setShowLevelUp(true)} sx = {{ ...buttonLevelCard, marginLeft: "2.5%" }}>Subir de Nivel</Button>
                         </div>
                     </div>
                 </div>
+                {showLevelUp && (<LevelUp onCloseLevelUp={() => setShowLevelUp(false)} />)}
             </div>
             {createHomeFooter()}
         </div>

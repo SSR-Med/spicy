@@ -6,5 +6,4 @@ export const buttonLevelCard = {
     height: "25%",
     border: '1px solid black',
     textTransform: "none" ,
-    marginLeft: "2.5%"
 }

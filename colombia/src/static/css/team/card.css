@@ -52,3 +52,50 @@
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
 }
+
+.level-up-container{
+    position: fixed;
+    background-color: #61C1F6;
+    border: 2px solid black;
+    width: 70%;
+    height: 55%;
+}
+.level-up-container-attributes{
+    position: relative;
+    width: 95%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap:wrap;
+}
+.level-up-container-attributes img{
+    height: 100%;
+    width: 50%;
+    border: 2px solid black;
+    margin: 2.5% 0 0 2.5%;
+}
+
+.level-up-container-attributes-element-container{
+    position: relative;
+    height: 90%;
+    width: 45%;
+    color:white;
+}
+.level-up-container-attributes-element{
+    position: relative;
+    width: 100%;
+    height: 20%;
+    background-color: #369DD7;
+}
+.level-up-container-attributes-element h1{
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin-left: 5%;
+}
+
+.level-up-buttons{
+    margin-top: 5%;
+    display: flex;
+}
