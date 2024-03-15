@@ -28,10 +28,13 @@ export default function Gacha(){
         <div className="gacha">
             <main className="gacha-main">
                 {createGachaElement(currentGacha.name,currentGacha.path, currentGacha.id)}
-            <div className="gacha-arrows">
-                <ArrowLeft sx= {arrowThemeGacha}  onClick={() => handleArrowClick("left")}/>
-                <ArrowRight sx= {arrowThemeGacha} onClick={() => handleArrowClick("right")}/>
-            </div>
+                <div className="gacha-arrows">
+                    <ArrowLeft sx= {arrowThemeGacha}  onClick={() => handleArrowClick("left")}/>
+                    <ArrowRight sx= {arrowThemeGacha} onClick={() => handleArrowClick("right")}/>
+                </div>
+                <div className="gacha-probabilities">
+                    <p>Info de probabilidades: Es el día del platanooo, chi cheñorrrr</p>
+                </div>
             </main>
             {createHomeFooter()}
         </div>

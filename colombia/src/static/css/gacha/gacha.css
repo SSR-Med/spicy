@@ -50,3 +50,15 @@
     align-items: center;
     justify-content: space-between;
 }
+
+.gacha-probabilities {
+    position: absolute;
+    color:white;
+    top:60%;
+    margin-left: 2.5%;
+    width: 20%;
+    height: 11%;
+    background-color: #369DD7;
+    overflow-y: scroll;
+    font-size: larger;
+}
