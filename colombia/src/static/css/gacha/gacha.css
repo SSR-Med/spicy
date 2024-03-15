@@ -22,12 +22,14 @@
     transform: translate(-50%,-50%);
     width: 50%;
     height: 70%;
+    z-index:3;
 }
 
 .gacha-popular img{
     position:relative;
     width: 100%;
     height: 80%;
+    cursor: pointer;
 }
 .gacha-popular h1{
     font-size: 2.5em;
@@ -49,16 +51,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 2;
 }
 
-.gacha-probabilities {
-    position: absolute;
-    color:white;
-    top:60%;
-    margin-left: 2.5%;
-    width: 20%;
-    height: 11%;
-    background-color: #369DD7;
-    overflow-y: scroll;
-    font-size: larger;
-}

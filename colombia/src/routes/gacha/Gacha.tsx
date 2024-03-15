@@ -28,9 +28,6 @@ export default function Gacha(){
                     <ArrowLeft sx= {arrowThemeGacha}  onClick={() => handleClick("left",currentGachaIndex,availableGacha,setCurrentGachaIndex,setCurrentGacha)}/>
                     <ArrowRight sx= {arrowThemeGacha} onClick={() => handleClick("right",currentGachaIndex,availableGacha,setCurrentGachaIndex,setCurrentGacha)}/>
                 </div>
-                <div className="gacha-probabilities">
-                    <p>Info de probabilidades: Es el día del platanooo, chi cheñorrrr</p>
-                </div>
             </main>
             {createHomeFooter()}
         </div>
