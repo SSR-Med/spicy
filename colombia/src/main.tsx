@@ -13,6 +13,7 @@ import Map from "./routes/map/Map"
 import Map_Level from './routes/map/Map_Level'
 import Home from "./routes/home/Home"
 import Gacha from "./routes/gacha/Gacha"
+import Prize from "./routes/gacha/Prize"
 import Team from "./routes/team/Team"
 import Card from "./routes/team/Card"
 
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
   {
     path: "/gacha",
     element: <Gacha />,
+  },
+  {
+    path: "/gacha/:idGacha",
+    element: <Prize />,
   },
   {
     path: "/team",

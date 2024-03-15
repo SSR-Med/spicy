@@ -1,6 +1,6 @@
 // Redirect
-export function handleRedirect(url:string,city: string) {
-  window.location.href = url+city;
+export function handleRedirect(url:string,element: string|number) {
+  window.location.href = url+element;
 }
 
 export function createMapDiv(image: string, city: string, hidden:boolean = false) {
