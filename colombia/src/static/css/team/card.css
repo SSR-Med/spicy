@@ -38,7 +38,7 @@
 .card-attributes {
     width: 50%;
     height: 60%;
-    margin: 2.5%;
+    margin: 2.5% 2.5% 0 2.5%;
     background-color: #61C1F6;
     border: 2px solid black;
 }
@@ -46,8 +46,8 @@
 .card-attribute-game{
     position: relative;
     width: 100%;
-    height: 60%;
-    margin: 2.5%;
+    height: 55%;
+    margin: 0 2.5% 2.5% 2.5%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);

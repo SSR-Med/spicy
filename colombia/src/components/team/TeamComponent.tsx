@@ -1,6 +1,6 @@
-// Components
-import { staticUrlCard } from "../gacha/GachaComponent"
-import { handleRedirect } from "../map/MapComponent"
+// Helpers
+import { staticUrlCard } from "../../helpers/StaticUrlCard";
+import { handleRedirect } from "../../helpers/HandleRedirect"
 
 //Get only the name of the image
 function getCardName(image: string){

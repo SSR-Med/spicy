@@ -1,7 +1,7 @@
 // Dependencies
 import { useLocation } from "react-router-dom";
-// Components
-import { staticUrlCard } from "../gacha/GachaComponent";
+// Helpers
+import { staticUrlCard } from "../../helpers/StaticUrlCard";
 
 
 function getNameUrl(){

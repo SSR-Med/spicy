@@ -1,8 +1,5 @@
-// Redirect
-export function handleRedirect(url:string,element: string|number) {
-  window.location.href = url+element;
-}
-
+// Helpers
+import { handleRedirect } from "../../helpers/HandleRedirect";
 export function createMapDiv(image: string, city: string, hidden:boolean = false) {
     // MapDivs
     return (

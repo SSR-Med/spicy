@@ -4,7 +4,8 @@ import { useState } from "react"
 import "/src/static/css/gacha/prize.css"
 // Components
 import { createHomeFooter } from "../../components/home/HomeComponent"
-import { staticUrlCard, handleClick } from "../../components/gacha/GachaComponent"
+// Helpers
+import { staticUrlCard } from "../../helpers/StaticUrlCard";
 export default function Prize(){
     const prize = [
         {path: staticUrlCard("milhoja")},

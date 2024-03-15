@@ -5,7 +5,10 @@ import { useState } from "react";
 import "/src/static/css/gacha/gacha.css"
 // Components
 import { createHomeFooter } from "../../components/home/HomeComponent"
-import { createGachaElement, staticUrlCard, handleClick } from "../../components/gacha/GachaComponent"
+import { createGachaElement } from "../../components/gacha/GachaComponent"
+// Helpers
+import { handleClick } from "../../helpers/HandleClick";
+import { staticUrlCard } from "../../helpers/StaticUrlCard";
 // Themes
 import { arrowThemeGacha } from "../../styles/gacha/GachaStyle"
 export default function Gacha(){
