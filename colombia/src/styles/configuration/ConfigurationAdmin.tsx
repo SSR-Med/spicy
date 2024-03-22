@@ -20,7 +20,7 @@ export const tableContainerThemeAdmin = {
     "& .MuiTableCell-root": { 
         color: 'white', 
     },
-    margin: "2.5% 0 2.5% 0",
+    margin: "1% 0 0 0",
     backgroundColor: "#369DD7",
     overflowY: "scroll",
     maxHeight: "45vh",

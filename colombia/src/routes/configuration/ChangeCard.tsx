@@ -1,13 +1,14 @@
 // Dependencies
-import { Table, TableBody, TableCell, TableContainer, TableRow, Paper} from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableRow, Paper, IconButton} from '@mui/material';
 import { useState } from 'react';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 // Css
 import "/src/static/css/configuration/changeCard.css"
 // Themes
 import { tableContainerThemeAdmin } from '../../styles/configuration/ConfigurationAdmin';
 // Components
 import { createHomeFooter,createHomeHeaderElement } from "../../components/home/HomeComponent"
-import { AdminSearch, ButtonEdit, createHeaderTable, createCells } from '../../components/configuration/AdminConfigurationComponent';
+import { AdminSearch, ButtonEdit, createHeaderTable, createCells, createCard } from '../../components/configuration/AdminConfigurationComponent';
 export default function ChangeCard(){
     const rows = [
         {
@@ -111,6 +112,9 @@ export default function ChangeCard(){
                             </TableBody>
                         </Table>
                         </TableContainer>
+                        <IconButton sx={{color:"white",}} onClick={createCard}>
+                            <AddCircleIcon />
+                        </IconButton>
                     </div>
                 </div>
             </main>

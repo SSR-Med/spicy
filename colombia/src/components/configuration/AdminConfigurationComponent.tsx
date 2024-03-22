@@ -35,6 +35,28 @@ async function handleDeleteAdmin() {
     cancelButtonText: 'Cancelar'
   });
 }
+// Create card
+export async function createCard(){
+  const formCard = await Swal.fire({
+    title: 'Creación de carta',
+    icon: 'info',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#D73636',
+    confirmButtonText: 'Crear',
+    cancelButtonText: 'Cancelar',
+    html: 
+      `
+      <input class="swal2-input" id="name" type="text" placeholder="Nombre" /><br />
+      <input class="swal2-input" id="rarity" type="text" placeholder="Rareza" /><br />
+      <input class="swal2-input" id="attack" type="text" placeholder="Ataque" /><br />
+      <input class="swal2-input" id="defense" type="text" placeholder="Defensa" /><br />
+      <input class="swal2-input" id="health" type="text" placeholder="Vida" /><br />
+      <input class="swal2-input" id="evassion" type="text" placeholder="Evasión" /><br />
+      `
+  });
+
+}
 
 // Button Edit
 export function ButtonEdit(id:number,editedRowIndex:number|null, setEditedRowIndex: React.Dispatch<React.SetStateAction<any>>) {
