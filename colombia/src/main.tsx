@@ -16,7 +16,7 @@ import Gacha from "./routes/gacha/Gacha"
 import Prize from "./routes/gacha/Prize"
 import Team from "./routes/team/Team"
 import Card from "./routes/team/Card"
-
+import Configuration from "./routes/configuration/Configuration"
 // Create a router (paths are relative to the root of the project)
 const router = createBrowserRouter([
   {
@@ -54,7 +54,11 @@ const router = createBrowserRouter([
   {
     path: "/team/:cardName",
     element: <Card />,
-  }
+  },
+  {
+    path: "/configuration",
+    element: <Configuration />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

@@ -1,5 +1,20 @@
 // Dependencies
 import { useLocation } from "react-router-dom";
+// Helpers
+import { handleRedirect } from "../../helpers/HandleRedirect";
+export function createHomeHeaderElement(){
+    return (
+        <header className="home-header">
+            <div className="home-config" onClick={() =>handleRedirect("/","configuration")}>
+                <h1>Usuario/Config</h1>
+            </div>
+            <div className="home-resources">
+                <h1>Recursos</h1>
+            </div>
+        </header>
+    )
+}
+
 export function createHomeFooterElement(labelPath: string, path:string){
     // Get location for background color    
     const location = useLocation();

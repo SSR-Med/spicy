@@ -25,6 +25,7 @@ export const ModalThemeGacha = {
     bgcolor: '#369DD7',
     border: '2px solid black',
     overflowY: "scroll",
+    outline: 0
 };
 // Modal text
 export const ModalTextThemeGacha = {

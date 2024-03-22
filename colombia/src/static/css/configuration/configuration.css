@@ -1,0 +1,32 @@
+.configuration-container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75%;
+    height: 70%;
+    background-color: #61C1F6;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+}
+
+.configuration-item{
+    width: 80%;
+    height: 15%;
+    margin-top: 4%;
+    border: 1px solid black;    
+    display: flex;
+    align-items: center;
+}
+
+.configuration-item p{
+    font-size: 2em;
+    color:white;
+    margin-left: 5%;
+}
+
+.configration-item:last-child{
+    margin-bottom: 4%;
+}
