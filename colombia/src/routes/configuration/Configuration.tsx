@@ -8,7 +8,7 @@ export default function Configuration(){
         <div className="home">
             {createHomeHeaderElement()}
             <main className="home-main">
-                {createConfiguration(false)}
+                {createConfiguration(true)}
             </main>
             {createHomeFooter()}
         </div>

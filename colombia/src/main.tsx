@@ -18,6 +18,8 @@ import Team from "./routes/team/Team"
 import Card from "./routes/team/Card"
 import Configuration from "./routes/configuration/Configuration"
 import { ChangePassword } from './routes/configuration/ChangePassword'
+import ChangeCard from './routes/configuration/ChangeCard'
+import ChangeUser from './routes/configuration/ChangeUser'
 // Create a router (paths are relative to the root of the project)
 const router = createBrowserRouter([
   {
@@ -63,6 +65,14 @@ const router = createBrowserRouter([
   {
     path: "/configuration/pass",
     element: <ChangePassword />,
+  },
+  {
+    path: "/configuration/cards",
+    element: <ChangeCard />,
+  },
+  {
+    path: "/configuration/accounts",
+    element: <ChangeUser />,
   },
 ]);
 

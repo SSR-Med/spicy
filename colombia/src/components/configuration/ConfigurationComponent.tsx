@@ -1,14 +1,25 @@
 // Dependencies
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-import Button from '@mui/material/Button';
-import { useState } from 'react';
+import Swal from 'sweetalert2';
 // Helpers
 import { handleRedirect } from "../../helpers/HandleRedirect";
 import { emptyFunction } from '../../helpers/EmptyFunction';
+
+
+// Alert
+async function handleDeleteAccount() {
+    const result = await Swal.fire({
+      title: '¿Está seguro de borrar su cuenta?',
+      text: "Perderá todo su progreso y no podrá recuperarlo.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#D73636',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Sí, borrar cuenta',
+      cancelButtonText: 'Cancelar'
+    });
+}
+
+
 // Create configuration element
 export function createConfigurationElement(nombre:string,color:string, pointer:boolean, onClick: any){
     return(
@@ -29,55 +40,25 @@ function selectConfiguration(admin:boolean){
         {nombre:"Nombre de usuario",color:"#369DD7",pointer:false,onClick:() => emptyFunction()},
     ];
     const adminElements = [
-        {nombre:"Modificar cuentas",color:"#369DD7",pointer:true,onClick:() => emptyFunction()},
-        {nombre:"Modificar cartas",color:"#369DD7",pointer:true,onClick:() => emptyFunction()},
+        {nombre:"Modificar cuentas",color:"#369DD7",pointer:true,onClick:() => handleRedirect("/","configuration/accounts")},
+        {nombre:"Modificar cartas",color:"#369DD7",pointer:true,onClick:() => handleRedirect("/","configuration/cards")},
     ];
     const userElements = [
         {nombre:"Modificar contraseña",color:"#369DD7",pointer:true,onClick:() => handleRedirect("/","configuration/pass")},
-        {nombre:"Eliminar cuenta",color:"#D73636",pointer:true,onClick:() => emptyFunction()},
+        {nombre:"Eliminar cuenta",color:"#D73636",pointer:true,onClick:handleDeleteAccount},
     ];
     return admin ? baseElements.concat(adminElements) : baseElements.concat(userElements);
 }
 
 
 
+
 // Create configuration
 export function createConfiguration(admin:boolean){
-    const [open, setOpen] = useState(false);
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-    const handleClose = () => {
-        setOpen(false);
-      };
     return (
         <div className="configuration-container">
-            <Dialog 
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="alert-dialog-title"
-                aria-describedby="alert-dialog-description"
-                disableEnforceFocus
-                
-                >
-                <DialogTitle id="alert-dialog-title">
-                {"¿Quiere borrar su cuenta?"}
-                </DialogTitle>
-                <DialogContent>
-                <DialogContentText id="alert-dialog-description">
-                    Perderá todo su progreso y no podrá recuperarlo, ¿Está seguro de que quiere borrar su cuenta?
-                </DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                <Button onClick={handleClose} autoFocus>Cancelar</Button>
-                <Button onClick={handleClose}>
-                    Aceptar
-                </Button>
-                </DialogActions>
-            </Dialog>
             {selectConfiguration(admin).map((element) => {
-                const onClickHandler = element.nombre === "Eliminar cuenta" ? handleClickOpen : element.onClick;
-                return createConfigurationElement(element.nombre, element.color, element.pointer, onClickHandler);
+                return createConfigurationElement(element.nombre, element.color, element.pointer, element.onClick);
             })}
         </div>
     )
