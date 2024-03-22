@@ -8,8 +8,9 @@ import Button from '@mui/material/Button';
 import { useState } from 'react';
 // Helpers
 import { handleRedirect } from "../../helpers/HandleRedirect";
+import { emptyFunction } from '../../helpers/EmptyFunction';
 // Create configuration element
-function createConfigurationElement(nombre:string,color:string, pointer:boolean, onClick: any){
+export function createConfigurationElement(nombre:string,color:string, pointer:boolean, onClick: any){
     return(
         <div className="configuration-item" style={
             {
@@ -21,10 +22,7 @@ function createConfigurationElement(nombre:string,color:string, pointer:boolean,
         </div>
     )
 }
-// Empty function
-function emptyFunction(){
-    
-}
+
 // Select list of elements
 function selectConfiguration(admin:boolean){
     const baseElements = [

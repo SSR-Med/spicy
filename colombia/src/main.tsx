@@ -17,6 +17,7 @@ import Prize from "./routes/gacha/Prize"
 import Team from "./routes/team/Team"
 import Card from "./routes/team/Card"
 import Configuration from "./routes/configuration/Configuration"
+import { ChangePassword } from './routes/configuration/ChangePassword'
 // Create a router (paths are relative to the root of the project)
 const router = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
   {
     path: "/configuration",
     element: <Configuration />,
+  },
+  {
+    path: "/configuration/pass",
+    element: <ChangePassword />,
   },
 ]);
 
