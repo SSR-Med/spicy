@@ -40,3 +40,8 @@ export const cellEditionTheme = {
     display:"flex",
     gap:"5%"
 }
+// Search textfield
+export const AdminSearchTheme = {
+    "& .MuiInputLabel-root": { color: 'white'}, 
+    "& .MuiInputBase-input": { color: 'white'},  
+}

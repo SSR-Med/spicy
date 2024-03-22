@@ -4,7 +4,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import Swal from 'sweetalert2';
 import React from 'react';
 // Themes
-import { textFieldThemeAdminSearch, iconButtonThemeAdminSearch, cellEditionTheme } from '../../styles/configuration/ConfigurationAdmin';
+import { textFieldThemeAdminSearch, iconButtonThemeAdminSearch, cellEditionTheme, AdminSearchTheme } from '../../styles/configuration/ConfigurationAdmin';
 
 export function AdminSearch(label:string){
     return(
@@ -62,7 +62,7 @@ export function createCells(id:number,editedRowIndex:number|null,row:Array<numbe
         return(
           <TableCell key={index}>
             {editedRowIndex === id ? (
-            <TextField
+            <TextField sx = {AdminSearchTheme}
               type={typeof element === 'number' ? 'number' : 'text'} 
               defaultValue={element}
             />
