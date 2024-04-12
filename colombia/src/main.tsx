@@ -18,6 +18,7 @@ import { ChangePassword } from "./routes/configuration/ChangePassword";
 import ChangeCard from "./routes/configuration/ChangeCard";
 import ChangeUser from "./routes/configuration/ChangeUser";
 import TeamSelection from "./routes/teamSelection/TeamSelection";
+import Battle from "./routes/battle/Battle";
 // Create a router (paths are relative to the root of the project)
 const router = createBrowserRouter([
   {
@@ -73,8 +74,12 @@ const router = createBrowserRouter([
     element: <ChangeUser />,
   },
   {
-    path: "/team-selection",
+    path: "/map/:levelName/:id",
     element: <TeamSelection />,
+  },
+  {
+    path: "/battle",
+    element: <Battle />,
   },
 ]);
 

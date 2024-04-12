@@ -43,12 +43,21 @@ export default function TeamSelection() {
     },
   ];
 
+  const handleRedirectMap = () => {
+    window.location.href = "/map";
+  };
+
+  const handleRedirectBattle = () => {
+    window.location.href = "/battle";
+  };
+
   return (
     <main className="team-selection">
       <div className="team-selection-container">
         <div className="team-selection-secondary-container">
           {battleTeam.map((card) =>
             createBattleTeamCard(
+              true,
               card.name,
               card.hp,
               card.attack,
@@ -59,10 +68,18 @@ export default function TeamSelection() {
         </div>
       </div>
       <div className="team-selection-buttons">
-        <Button variant="contained" sx={buttonThemeTeamSelection}>
+        <Button
+          variant="contained"
+          sx={buttonThemeTeamSelection}
+          onClick={handleRedirectMap}
+        >
           Regresar
         </Button>
-        <Button variant="contained" sx={buttonThemeTeamSelection}>
+        <Button
+          variant="contained"
+          sx={buttonThemeTeamSelection}
+          onClick={handleRedirectBattle}
+        >
           Iniciar
         </Button>
       </div>
