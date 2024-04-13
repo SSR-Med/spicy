@@ -19,6 +19,7 @@ import ChangeCard from "./routes/configuration/ChangeCard";
 import ChangeUser from "./routes/configuration/ChangeUser";
 import TeamSelection from "./routes/teamSelection/TeamSelection";
 import Battle from "./routes/battle/Battle";
+import Victory from "./routes/victory/Victory";
 // Create a router (paths are relative to the root of the project)
 const router = createBrowserRouter([
   {
@@ -80,6 +81,10 @@ const router = createBrowserRouter([
   {
     path: "/battle",
     element: <Battle />,
+  },
+  {
+    path: "/victory",
+    element: <Victory />,
   },
 ]);
 
