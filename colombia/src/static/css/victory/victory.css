@@ -1,0 +1,59 @@
+.victory-main {
+  width: 100%;
+  height: 90%;
+  background-image: url("/src/static/images/map/bellokistan.jfif");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.victory-main h1 {
+  width: 95%;
+  font-weight: bold;
+  text-align: left;
+}
+
+.victory-container {
+  width: 95%;
+  height: 80%;
+  display: flex;
+}
+
+.victory-main-container {
+  width: 60%;
+  height: 90%;
+  margin: 2.5%;
+  background-color: #61c1f6;
+  border: 2px solid black;
+}
+
+.victory-main-container H1 {
+  margin: 2.5%;
+}
+
+.victory-card-image {
+  margin: 2.5%;
+  width: 30%;
+  height: 90%;
+}
+
+.victory-card-image img {
+  width: 100%;
+  height: 100%;
+  border: 4px solid yellow;
+  zoom: 200%;
+}
+
+.victory-secondary-container {
+  box-sizing: border-box;
+  width: 95%;
+  height: 70%;
+  margin: 2.5%;
+  background-color: #369dd7;
+  font-size: 200%;
+  padding-left: 2%;
+}
