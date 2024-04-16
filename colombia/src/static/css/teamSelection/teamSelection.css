@@ -1,0 +1,64 @@
+.team-selection {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background-image: url("/src/static/images/map/bellokistan.jfif");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-selection-container {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-selection-secondary-container {
+  width: 80%;
+  height: 80%;
+  background-color: #61c1f6;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  border: 2px solid black;
+  place-items: center;
+}
+
+.team-battle-card {
+  width: 80%;
+  height: 80%;
+  background: #369dd7;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  padding-top: 5px;
+}
+
+.team-selection-secondary-container .team-battle-card img {
+  box-sizing: border-box;
+  width: 95%;
+  height: 75%;
+  cursor: pointer;
+  border: 2px solid yellow;
+  margin-bottom: 5px;
+}
+
+.team-battle-card-info {
+  width: 95%;
+}
+
+.team-selection-buttons {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
