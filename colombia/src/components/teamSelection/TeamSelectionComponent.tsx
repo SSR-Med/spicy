@@ -1,27 +1,24 @@
 import { handleRedirect } from "../../helpers/HandleRedirect";
 import { staticUrlCard } from "../../helpers/StaticUrlCard";
 
-export function createBattleTeamCard(
-  isSelection: boolean,
-  urlImage: string,
-  hp: number,
-  attack: number,
-  defense: number,
-  evasion: number
+export function createSelectionTeamCard(
+  card: {
+    name: string,
+    hp: number,
+    attack: number,
+    defense: number,
+    evasion: number
+  }
 ) {
   return (
     <div className="team-battle-card">
-      {isSelection ? (
-        <img
-          src={staticUrlCard(urlImage)}
+      <img
+          src={staticUrlCard(card.name)}
           onClick={() => handleRedirect("/team", "")}
-        />
-      ) : (
-        <img src={staticUrlCard(urlImage)} />
-      )}
+      />
       <div className="team-battle-card-info">
-        <div>{`HP: ${hp}`}</div>
-        <div>{`Ataque: ${attack} / Defensa: ${defense} / Evasion: ${evasion}`}</div>
+        <div>{`HP: ${card.hp}`}</div>
+        <div>{`Ataque: ${card.attack} / Defensa: ${card.defense} / Evasion: ${card.evasion}`}</div>
       </div>
     </div>
   );

@@ -20,18 +20,48 @@
   height: 100%;
 }
 
+.battle-turn-indicator {
+  width: 100%;
+  height: 5%;
+  background: #369dd7;
+  color: #fff;
+  border: 2px solid #fff;
+  text-align: center;
+}
+
 .battle-character-container {
   width: 100%;
-  height: 50%;
+  height: 45%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(1, 1fr);
   place-items: center;
 }
 
+.battle-information-option {
+  width: 100%;
+  height: 10%;
+}
+
+.battle-information-dice {
+  display: flex;
+  justify-content: center;
+}
+
+.battle-information-dice-result {
+  background-color: #61c1f6;
+  color: white;
+  width: 10%;
+  margin-left: 10%;
+  text-align: center;
+  border-radius: 10%;
+  padding: 1%;
+  border: 1px solid #369dd7;
+}
+
 .enemy-character-container {
   width: 100%;
-  height: 50%;
+  height: 40%;
   display: flex;
   place-items: center;
   justify-content: center;
@@ -39,7 +69,7 @@
 
 .team-battle-card {
   width: 80%;
-  height: 90%;
+  height: 85%;
   background: #369dd7;
   color: #fff;
   display: flex;
