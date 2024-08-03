@@ -4,6 +4,7 @@ import "/src/static/css/battle/battle.css";
 //Components
 import { createBattleTeamCard } from "../../components/teamSelection/TeamSelectionComponent";
 import { createEnemyTeamCard } from "../../components/battle/battleComponent";
+import BattleTurnIndicator from "../../components/battle/BattleTurnIndicator";
 
 export default function Battle() {
   const battleTeam = [
@@ -50,6 +51,8 @@ export default function Battle() {
   return (
     <main className="battle-main">
       <div className="battle-secondary">
+        <BattleTurnIndicator />
+
         <div className="enemy-character-container">
           {enemyTeam.map((card) =>
             createEnemyTeamCard(

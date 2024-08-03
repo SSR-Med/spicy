@@ -1,5 +1,7 @@
 import { handleRedirect } from "../../helpers/HandleRedirect";
 import { staticUrlCard } from "../../helpers/StaticUrlCard";
+//Hooks
+import { useBattle } from "../../hooks/useBattle";
 
 export function createBattleTeamCard(
   isSelection: boolean,
@@ -9,6 +11,8 @@ export function createBattleTeamCard(
   defense: number,
   evasion: number
 ) {
+  const {choiceTurn, setChoiceTurn} = useBattle();
+
   return (
     <div className="team-battle-card">
       {isSelection ? (
@@ -17,7 +21,14 @@ export function createBattleTeamCard(
           onClick={() => handleRedirect("/team", "")}
         />
       ) : (
-        <img src={staticUrlCard(urlImage)} />
+        <img 
+          src={staticUrlCard(urlImage)}
+          onClick={() => {
+            if (choiceTurn) {
+              setChoiceTurn(false);
+            }
+          }}
+        />
       )}
       <div className="team-battle-card-info">
         <div>{`HP: ${hp}`}</div>

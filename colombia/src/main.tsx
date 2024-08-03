@@ -20,6 +20,10 @@ import ChangeUser from "./routes/configuration/ChangeUser";
 import TeamSelection from "./routes/teamSelection/TeamSelection";
 import Battle from "./routes/battle/Battle";
 import Victory from "./routes/victory/Victory";
+
+//Providers
+import { BattleProvider } from "./context/BattleContext";
+
 // Create a router (paths are relative to the root of the project)
 const router = createBrowserRouter([
   {
@@ -90,6 +94,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <BattleProvider>
+      <RouterProvider router={router} />
+    </BattleProvider>
   </React.StrictMode>
 );
