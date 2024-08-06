@@ -11,7 +11,7 @@ export function createBattleTeamCard(
   defense: number,
   evasion: number
 ) {
-  const {choiceTurn, setChoiceTurn} = useBattle();
+  const {choiceTurn, setChoiceTurn, setPlayerChoice, setAttackChoiceTurn} = useBattle();
 
   return (
     <div className="team-battle-card">
@@ -26,6 +26,14 @@ export function createBattleTeamCard(
           onClick={() => {
             if (choiceTurn) {
               setChoiceTurn(false);
+              setPlayerChoice({
+                name: urlImage,
+                hp,
+                attack,
+                defense,
+                evasion
+              });
+              setAttackChoiceTurn(true);
             }
           }}
         />

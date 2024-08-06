@@ -6,37 +6,11 @@ import { createBattleTeamCard } from "../../components/teamSelection/TeamSelecti
 import { createEnemyTeamCard } from "../../components/battle/battleComponent";
 import BattleTurnIndicator from "../../components/battle/BattleTurnIndicator";
 
+//Hooks
+import { useBattle } from "../../hooks/useBattle";
+
 export default function Battle() {
-  const battleTeam = [
-    {
-      name: "Milo",
-      hp: 100,
-      attack: 20,
-      defense: 15,
-      evasion: 15,
-    },
-    {
-      name: "mazamorra",
-      hp: 100,
-      attack: 20,
-      defense: 15,
-      evasion: 15,
-    },
-    {
-      name: "changua",
-      hp: 100,
-      attack: 20,
-      defense: 15,
-      evasion: 15,
-    },
-    {
-      name: "ensalada",
-      hp: 100,
-      attack: 20,
-      defense: 15,
-      evasion: 15,
-    },
-  ];
+  const { playerTeam } = useBattle();
 
   const enemyTeam = [
     {
@@ -66,7 +40,7 @@ export default function Battle() {
         </div>
 
         <div className="battle-character-container">
-          {battleTeam.map((card) =>
+          {playerTeam.map((card) =>
             createBattleTeamCard(
               false,
               card.name,

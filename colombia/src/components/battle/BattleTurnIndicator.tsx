@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 //CSS
 import "/src/static/css/battle/battle.css";
 
