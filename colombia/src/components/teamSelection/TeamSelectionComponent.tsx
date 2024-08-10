@@ -26,7 +26,7 @@ export function CreateBattleTeamCard({
   return (
     <div
       className="team-battle-card"
-      style={{ cursor: choiceTurn ? "pointer" : "inherited" }}
+      style={{ cursor: choiceTurn ? "pointer" : "default" }}
     >
       {isSelection ? (
         <img

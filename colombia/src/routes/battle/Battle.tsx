@@ -5,6 +5,7 @@ import "/src/static/css/battle/battle.css";
 import { CreateBattleTeamCard } from "../../components/teamSelection/TeamSelectionComponent";
 import { CreateEnemyTeamCard } from "../../components/battle/battleComponent";
 import BattleTurnIndicator from "../../components/battle/BattleTurnIndicator";
+import BattleTools from "../../components/battle/BattleTools";
 
 //Hooks
 import { useBattle } from "../../hooks/useBattle";
@@ -38,6 +39,8 @@ export default function Battle() {
             />
           )}
         </div>
+
+        <BattleTools />
 
         <div className="battle-character-container">
           {playerTeam.map((card) =>

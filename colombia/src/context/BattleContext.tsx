@@ -40,6 +40,10 @@ interface BattleContextValue {
     setPlayerChoice: (team: {name: string, hp: number, attack: number, defense: number, evasion: number}) => void,
     attackChoiceTurn: boolean,
     setAttackChoiceTurn: (value: boolean) => void,
+    diceValue: number,
+    setDiceValue: (value: number) => void,
+    attackTurn: boolean,
+    setAttackTurn: (value: boolean) => void,
 }
 
 export const BattleContext = createContext<BattleContextValue | null>(null);
@@ -49,6 +53,8 @@ export const BattleProvider: FC<{ children: ReactNode }> = ({ children }) => {
     const [playerTeam, setPlayerTeam] = useState<{name: string, hp: number, attack: number, defense: number, evasion: number}[]>(battleTeam);
     const [playerChoice, setPlayerChoice] = useState<{name: string, hp: number, attack: number, defense: number, evasion: number}>({name: "", hp: 0, attack: 0, defense: 0, evasion: 0});
     const [attackChoiceTurn, setAttackChoiceTurn] = useState(false);
+    const [diceValue, setDiceValue] = useState(0);
+    const [attackTurn, setAttackTurn] = useState(false);
 
     return (
         <BattleContext.Provider
@@ -69,6 +75,14 @@ export const BattleProvider: FC<{ children: ReactNode }> = ({ children }) => {
             setAttackChoiceTurn: (value) => {
                 setAttackChoiceTurn(value);
             },
+            diceValue,
+            setDiceValue: (value) => {
+              setDiceValue(value);
+            },
+            attackTurn,
+            setAttackTurn: (value) => {
+              setAttackTurn(value);
+            }
         }}
         >
             {children}
