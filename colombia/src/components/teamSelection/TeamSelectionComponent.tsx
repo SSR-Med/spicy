@@ -3,25 +3,38 @@ import { staticUrlCard } from "../../helpers/StaticUrlCard";
 //Hooks
 import { useBattle } from "../../hooks/useBattle";
 
-export function createBattleTeamCard(
-  isSelection: boolean,
-  urlImage: string,
-  hp: number,
-  attack: number,
-  defense: number,
-  evasion: number
-) {
-  const {choiceTurn, setChoiceTurn, setPlayerChoice, setAttackChoiceTurn} = useBattle();
+interface BattleTeamProps {
+  isSelection: boolean;
+  urlImage: string;
+  hp: number;
+  attack: number;
+  defense: number;
+  evasion: number;
+}
+
+export function CreateBattleTeamCard({
+  isSelection,
+  urlImage,
+  hp,
+  attack,
+  defense,
+  evasion,
+} : BattleTeamProps) {
+  const { choiceTurn, setChoiceTurn, setPlayerChoice, setAttackChoiceTurn } =
+    useBattle();
 
   return (
-    <div className="team-battle-card">
+    <div
+      className="team-battle-card"
+      style={{ cursor: choiceTurn ? "pointer" : "inherited" }}
+    >
       {isSelection ? (
         <img
           src={staticUrlCard(urlImage)}
           onClick={() => handleRedirect("/team", "")}
         />
       ) : (
-        <img 
+        <img
           src={staticUrlCard(urlImage)}
           onClick={() => {
             if (choiceTurn) {
@@ -31,7 +44,7 @@ export function createBattleTeamCard(
                 hp,
                 attack,
                 defense,
-                evasion
+                evasion,
               });
               setAttackChoiceTurn(true);
             }

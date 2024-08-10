@@ -5,14 +5,16 @@ import "/src/static/css/battle/battle.css";
 import { useBattle } from "../../hooks/useBattle";
 
 const BattleTurnIndicator = () => {
-    const { choiceTurn } = useBattle();
+    const { choiceTurn, attackChoiceTurn } = useBattle();
     
     let info = "";
 
     if (choiceTurn) {
         info = "Elige con quien atacar";
-    } else {
+    } else if (attackChoiceTurn) {
         info = "Ataca al enemigo!";
+    } else {
+        info = "Turno desconocido";
     }
 
     return (
