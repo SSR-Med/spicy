@@ -1,12 +1,21 @@
 import { staticUrlCard } from "../../helpers/StaticUrlCard";
 
-export function createEnemyTeamCard(
+interface EnemyTeamProps {
   urlImage: string,
   hp: number,
   attack: number,
   defense: number,
   evasion: number
-) {
+}
+
+export function CreateEnemyTeamCard(
+  {
+    urlImage,
+    hp,
+    attack,
+    defense,
+    evasion
+  } : EnemyTeamProps) {
   return (
     <div className="enemy-battle-card">
       <img src={staticUrlCard(urlImage)} />
