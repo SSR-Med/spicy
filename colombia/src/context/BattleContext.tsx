@@ -31,6 +31,16 @@ const battleTeam = [
     },
   ];
 
+const enemyBattleTeam = [
+  {
+    name: "maria_juana",
+    hp: 300,
+    attack: 25,
+    defense: 10,
+    evasion: 5,
+  },
+];
+
 interface BattleContextValue {
     choiceTurn: boolean,
     setChoiceTurn: (value:boolean) => void,
@@ -44,6 +54,18 @@ interface BattleContextValue {
     setDiceValue: (value: number) => void,
     attackTurn: boolean,
     setAttackTurn: (value: boolean) => void,
+    attackValue: number,
+    setAttackValue: (value: number) => void,
+    enemyTeam: {name: string, hp: number, attack: number, defense: number, evasion: number}[],
+    setEnemyTeam: (team: {name: string, hp: number, attack: number, defense: number, evasion: number}[]) => void,
+    enemyDefenseTurn: boolean,
+    setEnemyDefenseTurn: (value: boolean) => void,
+    defenseChoice: string,
+    setDefenseChoice: (value: string) => void,
+    damage: number,
+    setDamage: (value: number) => void,
+    enemyAttackTurn: boolean,
+    setEnemyAttackTurn: (value: boolean) => void,
 }
 
 export const BattleContext = createContext<BattleContextValue | null>(null);
@@ -55,6 +77,12 @@ export const BattleProvider: FC<{ children: ReactNode }> = ({ children }) => {
     const [attackChoiceTurn, setAttackChoiceTurn] = useState(false);
     const [diceValue, setDiceValue] = useState(0);
     const [attackTurn, setAttackTurn] = useState(false);
+    const [attackValue, setAttackValue] = useState(0);
+    const [enemyTeam, setEnemyTeam] = useState(enemyBattleTeam);
+    const [enemyDefenseTurn, setEnemyDefenseTurn] = useState(false);
+    const [defenseChoice, setDefenseChoice] = useState("");
+    const [damage, setDamage] = useState(0);
+    const [enemyAttackTurn, setEnemyAttackTurn] = useState(false);
 
     return (
         <BattleContext.Provider
@@ -82,6 +110,30 @@ export const BattleProvider: FC<{ children: ReactNode }> = ({ children }) => {
             attackTurn,
             setAttackTurn: (value) => {
               setAttackTurn(value);
+            },
+            attackValue,
+            setAttackValue: (value) => {
+              setAttackValue(value);
+            },
+            enemyTeam,
+            setEnemyTeam: (team) => {
+              setEnemyTeam(team);
+            },
+            enemyDefenseTurn,
+            setEnemyDefenseTurn: (value) => {
+              setEnemyDefenseTurn(value);
+            },
+            defenseChoice,
+            setDefenseChoice: (value) => {
+              setDefenseChoice(value);
+            },
+            damage,
+            setDamage: (value) => {
+              setDamage(value);
+            },
+            enemyAttackTurn,
+            setEnemyAttackTurn: (value) => {
+              setEnemyAttackTurn(value);
             }
         }}
         >

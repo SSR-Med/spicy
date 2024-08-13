@@ -11,17 +11,7 @@ import BattleTools from "../../components/battle/BattleTools";
 import { useBattle } from "../../hooks/useBattle";
 
 export default function Battle() {
-  const { playerTeam } = useBattle();
-
-  const enemyTeam = [
-    {
-      name: "maria_juana",
-      hp: 300,
-      attack: 25,
-      defense: 10,
-      evasion: 5,
-    },
-  ];
+  const { playerTeam, enemyTeam } = useBattle();
 
   return (
     <main className="battle-main">
@@ -30,7 +20,8 @@ export default function Battle() {
 
         <div className="enemy-character-container">
           {enemyTeam.map((card) => 
-            <CreateEnemyTeamCard 
+            <CreateEnemyTeamCard
+            key={card.name} 
             urlImage={card.name}
             hp={card.hp}
             attack={card.attack}
@@ -45,6 +36,7 @@ export default function Battle() {
         <div className="battle-character-container">
           {playerTeam.map((card) =>
             <CreateBattleTeamCard
+              key={card.name}
               isSelection={false}
               urlImage={card.name}
               hp={card.hp}
