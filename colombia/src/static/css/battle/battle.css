@@ -50,6 +50,16 @@
   justify-content: center;
 }
 
+.battle-tools-defense-options {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.battle-tools-defense-options Button {
+  margin: 0% 10% 0% 10%;
+}
+
 .battle-tools-dice-result {
   background-color: #61c1f6;
   color: white;

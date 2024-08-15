@@ -5,7 +5,7 @@ import "/src/static/css/battle/battle.css";
 import { useBattle } from "../../hooks/useBattle";
 
 const BattleTurnIndicator = () => {
-    const { choiceTurn, attackChoiceTurn, attackTurn, attackValue, enemyDefenseTurn, damage, defenseChoice, enemyAttackTurn } = useBattle();
+    const { choiceTurn, attackChoiceTurn, attackTurn, attackValue, enemyDefenseTurn, damage, defenseChoice, enemyAttackTurn, defenseChoiceTurn, defenseDiceTurn } = useBattle();
     
     let info = "";
 
@@ -27,6 +27,10 @@ const BattleTurnIndicator = () => {
         }
     } else if (enemyAttackTurn) {
         info = `El enemigo te está atacando con ${attackValue}!!`;
+    } else if (defenseChoiceTurn) {
+        info = "Elige como defenderte";
+    } else if (defenseDiceTurn) {
+        info = "Tira el dado!";
     }
 
     return (

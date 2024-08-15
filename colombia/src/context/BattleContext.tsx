@@ -66,6 +66,12 @@ interface BattleContextValue {
     setDamage: (value: number) => void,
     enemyAttackTurn: boolean,
     setEnemyAttackTurn: (value: boolean) => void,
+    defenseChoiceTurn: boolean,
+    setDefenseChoiceTurn: (value: boolean) => void,
+    defenseTurn: boolean,
+    setDefenseTurn: (value: boolean) => void,
+    defenseDiceTurn: boolean,
+    setDefenseDiceTurn: (value: boolean) => void,
 }
 
 export const BattleContext = createContext<BattleContextValue | null>(null);
@@ -83,6 +89,9 @@ export const BattleProvider: FC<{ children: ReactNode }> = ({ children }) => {
     const [defenseChoice, setDefenseChoice] = useState("");
     const [damage, setDamage] = useState(0);
     const [enemyAttackTurn, setEnemyAttackTurn] = useState(false);
+    const [defenseChoiceTurn, setDefenseChoiceTurn] = useState(false);
+    const [defenseTurn, setDefenseTurn] = useState(false);
+    const [defenseDiceTurn, setDefenseDiceTurn] = useState(false);
 
     return (
         <BattleContext.Provider
@@ -113,7 +122,7 @@ export const BattleProvider: FC<{ children: ReactNode }> = ({ children }) => {
             },
             attackValue,
             setAttackValue: (value) => {
-              setAttackValue(value);
+              setAttackValue(attackValue => attackValue = value);
             },
             enemyTeam,
             setEnemyTeam: (team) => {
@@ -134,7 +143,19 @@ export const BattleProvider: FC<{ children: ReactNode }> = ({ children }) => {
             enemyAttackTurn,
             setEnemyAttackTurn: (value) => {
               setEnemyAttackTurn(value);
-            }
+            },
+            defenseChoiceTurn,
+            setDefenseChoiceTurn: (value) => {
+              setDefenseChoiceTurn(value);
+            },
+            defenseTurn,
+            setDefenseTurn: (value) => {
+              setDefenseTurn(value);
+            },
+            defenseDiceTurn,
+            setDefenseDiceTurn: (value) => {
+              setDefenseDiceTurn(value);
+            },
         }}
         >
             {children}
