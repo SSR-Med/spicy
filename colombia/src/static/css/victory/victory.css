@@ -23,6 +23,18 @@
   display: flex;
 }
 
+.victory-container-lose {
+  width: 95%;
+  height: 20%;
+  margin: 2.5%;
+  background-color: #61c1f6;
+  border: 2px solid black;
+}
+
+.victory-container-lose h1 {
+  text-align: center;
+}
+
 .victory-main-container {
   width: 60%;
   height: 90%;
@@ -31,7 +43,7 @@
   border: 2px solid black;
 }
 
-.victory-main-container H1 {
+.victory-main-container h1 {
   margin: 2.5%;
 }
 

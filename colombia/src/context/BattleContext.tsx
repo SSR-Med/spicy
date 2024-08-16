@@ -4,30 +4,30 @@ const battleTeam = [
     {
       name: "Milo",
       hp: 100,
-      attack: 20,
-      defense: 15,
-      evasion: 15,
+      attack: 40,
+      defense: 30,
+      evasion: 30,
     },
     {
       name: "mazamorra",
       hp: 100,
-      attack: 20,
-      defense: 15,
-      evasion: 15,
+      attack: 40,
+      defense: 30,
+      evasion: 30,
     },
     {
       name: "changua",
       hp: 100,
-      attack: 20,
-      defense: 15,
-      evasion: 15,
+      attack: 40,
+      defense: 30,
+      evasion: 30,
     },
     {
       name: "ensalada",
       hp: 100,
-      attack: 20,
-      defense: 15,
-      evasion: 15,
+      attack: 40,
+      defense: 30,
+      evasion: 30,
     },
   ];
 
@@ -35,9 +35,9 @@ const enemyBattleTeam = [
   {
     name: "maria_juana",
     hp: 300,
-    attack: 25,
-    defense: 10,
-    evasion: 5,
+    attack: 40,
+    defense: 20,
+    evasion: 10,
   },
 ];
 
@@ -72,6 +72,8 @@ interface BattleContextValue {
     setDefenseTurn: (value: boolean) => void,
     defenseDiceTurn: boolean,
     setDefenseDiceTurn: (value: boolean) => void,
+    victory: boolean,
+    setVictory: (value: boolean) => void,
 }
 
 export const BattleContext = createContext<BattleContextValue | null>(null);
@@ -92,6 +94,7 @@ export const BattleProvider: FC<{ children: ReactNode }> = ({ children }) => {
     const [defenseChoiceTurn, setDefenseChoiceTurn] = useState(false);
     const [defenseTurn, setDefenseTurn] = useState(false);
     const [defenseDiceTurn, setDefenseDiceTurn] = useState(false);
+    const [victory, setVictory] = useState(false);
 
     return (
         <BattleContext.Provider
@@ -156,6 +159,10 @@ export const BattleProvider: FC<{ children: ReactNode }> = ({ children }) => {
             setDefenseDiceTurn: (value) => {
               setDefenseDiceTurn(value);
             },
+            victory,
+            setVictory: (value) => {
+              setVictory(value);
+            }
         }}
         >
             {children}

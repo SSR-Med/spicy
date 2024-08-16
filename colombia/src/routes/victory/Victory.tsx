@@ -13,22 +13,39 @@ import { staticUrlCard } from "../../helpers/StaticUrlCard";
 // Components
 import { createHomeFooter } from "../../components/home/HomeComponent";
 
+//hooks
+import { useBattle } from "../../hooks/useBattle";
+
 export default function Victory() {
-  return (
-    <div className="team">
+  const { victory } = useBattle();
+
+  if (victory) {
+    return (
+      <div className="team">
+        <div className="victory-main">
+          <div className="victory-container">
+            <div className="victory-card-image">
+              <img src={staticUrlCard("Milo")} />
+            </div>
+            <div className="victory-main-container">
+              <h1>V I C T O R I A !!!</h1>
+              <div className="victory-secondary-container">Recompensas</div>
+            </div>
+          </div>
+        </div>
+        {createHomeFooter()}
+      </div>
+    );
+  } else {
+    return (
+      <div className="team">
       <div className="victory-main">
-        <h1>Mayor daño: Milo</h1>
-        <div className="victory-container">
-          <div className="victory-card-image">
-            <img src={staticUrlCard("Milo")} />
-          </div>
-          <div className="victory-main-container">
-            <h1>V I C T O R I A !!!</h1>
-            <div className="victory-secondary-container">Recompensas</div>
-          </div>
+        <div className="victory-container-lose">
+          <h1>FUISTE DERROTADO!!</h1>
         </div>
       </div>
       {createHomeFooter()}
     </div>
-  );
+    );
+  }
 }

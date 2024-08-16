@@ -8,10 +8,10 @@ import { buttonThemeTeamSelection } from "../../styles/teamSelection/teamSelecti
 import { useBattle } from "../../hooks/useBattle";
 
 //helpers
-import { playerAttack, enemyAttack } from "../../helpers/BattleHelper";
+import { playerAttack, enemyAttack, playerDefense } from "../../helpers/BattleHelper";
 
 const BattleTools = () => {
-    const {attackChoiceTurn, setAttackChoiceTurn, diceValue, attackTurn, setAttackTurn, playerChoice, setDiceValue, attackValue, setAttackValue, enemyTeam, setEnemyTeam, setEnemyDefenseTurn, setDefenseChoice, setDamage, setEnemyAttackTurn, defenseChoiceTurn, setDefenseChoiceTurn, defenseTurn, setDefenseTurn, defenseDiceTurn, setDefenseDiceTurn} = useBattle();
+    const {setChoiceTurn, attackChoiceTurn, setAttackChoiceTurn, diceValue, attackTurn, setAttackTurn, playerChoice, setDiceValue, attackValue, setAttackValue, enemyTeam, setEnemyTeam, setEnemyDefenseTurn, setDefenseChoice, setDamage, setEnemyAttackTurn, defenseChoiceTurn, setDefenseChoiceTurn, defenseTurn, setDefenseTurn, defenseDiceTurn, setDefenseDiceTurn, defenseChoice, playerTeam, setPlayerTeam, setVictory } = useBattle();
 
     if (attackChoiceTurn || attackTurn) {
         return (
@@ -24,8 +24,8 @@ const BattleTools = () => {
                     onClick={() => {
                         setAttackChoiceTurn(false);
                         setAttackTurn(true);
-                        playerAttack(playerChoice, setDiceValue, setAttackValue, setAttackTurn, enemyTeam,setEnemyTeam, setEnemyDefenseTurn, setDefenseChoice, setDamage);
-                        setTimeout(enemyAttack, 4000, setAttackValue, enemyTeam, setEnemyDefenseTurn, setEnemyAttackTurn, setDefenseChoiceTurn);
+                        playerAttack(playerChoice, setDiceValue, setAttackValue, setAttackTurn, enemyTeam,setEnemyTeam, setEnemyDefenseTurn, setDefenseChoice, setDamage, setVictory);
+                        setTimeout(enemyAttack, 2000, setAttackValue, enemyTeam, setEnemyDefenseTurn, setEnemyAttackTurn, setDefenseChoiceTurn);
                     }}
                     >
                         Tirar dado
@@ -73,6 +73,7 @@ const BattleTools = () => {
                     disabled={defenseTurn}
                     onClick={() => {
                         setDefenseDiceTurn(false);
+                        playerDefense(defenseChoice, playerTeam, setPlayerTeam, attackValue, diceValue, setDamage, setDefenseTurn, setChoiceTurn, setVictory);
                     }}
                     >
                         Tirar dado

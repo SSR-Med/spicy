@@ -5,7 +5,7 @@ import "/src/static/css/battle/battle.css";
 import { useBattle } from "../../hooks/useBattle";
 
 const BattleTurnIndicator = () => {
-    const { choiceTurn, attackChoiceTurn, attackTurn, attackValue, enemyDefenseTurn, damage, defenseChoice, enemyAttackTurn, defenseChoiceTurn, defenseDiceTurn } = useBattle();
+    const { choiceTurn, attackChoiceTurn, attackTurn, attackValue, enemyDefenseTurn, damage, defenseChoice, enemyAttackTurn, defenseChoiceTurn, defenseDiceTurn, defenseTurn } = useBattle();
     
     let info = "";
 
@@ -31,6 +31,16 @@ const BattleTurnIndicator = () => {
         info = "Elige como defenderte";
     } else if (defenseDiceTurn) {
         info = "Tira el dado!";
+    } else if (defenseTurn) {
+        if (defenseChoice === "defendió" && damage > 0) {
+            info = `Defendiste y recibiste ${damage} de daño`;
+        } else if (defenseChoice === "defendió") {
+            info = `Defendiste y no recibiste daño`;
+        } else if (defenseChoice === "evadió" && damage > 0) {
+            info = `Trataste de evadir y recibiste sendo coñazo de ${damage}`;
+        } else if (defenseChoice === "evadió") {
+            info = `Evadiste y no recibiste daño`;
+        }
     }
 
     return (
