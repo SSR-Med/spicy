@@ -34,7 +34,7 @@ const battleTeam = [
 const enemyBattleTeam = [
   {
     name: "maria_juana",
-    hp: 300,
+    hp: 50,
     attack: 40,
     defense: 20,
     evasion: 10,

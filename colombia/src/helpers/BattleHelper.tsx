@@ -24,6 +24,7 @@ export const playerAttack = (
     setAttackValue(attack);
     const defenseOption = randomBetween(1, 2);
     const enemyDiceResult = randomBetween(1,20);
+    let defeatedMembers = 0;
     switch (defenseOption) {
             case 1:
                 const defenderIndex = randomCardIndex(enemyTeam.length);
@@ -34,16 +35,16 @@ export const playerAttack = (
                     let newEnemyTeamState = [...enemyTeam];
                     if ((newEnemyTeamState[defenderIndex].hp - damage) < 0) {
                         newEnemyTeamState[defenderIndex].hp = 0;
+                        newEnemyTeamState.forEach((member) => {
+                            if (member.hp == 0) {
+                                defeatedMembers += 1;
+                            }
+                        });
+                        newEnemyTeamState.splice(defenderIndex, 1);
                     } else {
                         newEnemyTeamState[defenderIndex].hp -= damage;
                     }
                     setEnemyTeam(newEnemyTeamState);
-                    let defeatedMembers = 0;
-                    newEnemyTeamState.forEach((member) => {
-                        if (member.hp == 0) {
-                            defeatedMembers += 1;
-                        }
-                    });
                     if (defeatedMembers == enemyTeam.length) {
                         setVictory(true);
                         window.location.href = "/victory";
@@ -57,23 +58,24 @@ export const playerAttack = (
                 const evadorIndex = randomCardIndex(enemyTeam.length);
                 const enemyEvasion = enemyTeam[evadorIndex].evasion;
                 setDefenseChoice("evadió");
+                
                 if (attack <= (enemyEvasion + enemyDiceResult)) {
                     setDamage(0);
                 } else {
                     let newEnemyTeamState = [...enemyTeam];
                     if ((newEnemyTeamState[evadorIndex].hp - attack) < 0) {
                         newEnemyTeamState[evadorIndex].hp = 0;
+                        newEnemyTeamState.forEach((member) => {
+                            if (member.hp == 0) {
+                                defeatedMembers += 1;
+                            }
+                        });
+                        newEnemyTeamState.splice(evadorIndex, 1);
                     } else {
                         newEnemyTeamState[evadorIndex].hp -= attack;
                     }
                     setEnemyTeam(newEnemyTeamState);
                     setDamage(attack);
-                    let defeatedMembers = 0;
-                    newEnemyTeamState.forEach((member) => {
-                        if (member.hp == 0) {
-                            defeatedMembers += 1;
-                        }
-                    });
                     if (defeatedMembers == enemyTeam.length) {
                         setVictory(true);
                         window.location.href = "/victory";
@@ -111,12 +113,14 @@ export const playerDefense = (
     playerTeam: {name: string, hp: number, attack: number, defense: number, evasion: number}[],
     setPlayerTeam: (team: {name: string, hp: number, attack: number, defense: number, evasion: number}[]) => void,
     attackValue: number,
-    diceValue: number,
     setDamage: (value: number) => void,
     setPlayerDefenseTurn: (value: boolean) => void,
     setPlayerChoiceTurn: (value: boolean) => void,
     setVictory: (value: boolean) => void,
+    setDiceValue: (value: number) => void,
 ) => {
+    const diceValue = randomBetween(1,20);
+    setDiceValue(diceValue);
     switch(defenseChoice) {
         case "defendió":
             const defenderIndex = randomCardIndex(playerTeam.length);
@@ -124,19 +128,20 @@ export const playerDefense = (
             if (attackValue > (defenseValue + diceValue)) {
                 const damage = attackValue - (defenseValue + diceValue);
                 let newPlayerTeamState = [...playerTeam];
+                let defeatedMembers = 0;
                 if ((newPlayerTeamState[defenderIndex].hp - damage) < 0) {
                     newPlayerTeamState[defenderIndex].hp = 0;
+                    newPlayerTeamState.forEach((member) => {
+                        if(member.hp == 0) {
+                            defeatedMembers += 1;
+                        }
+                    });
+                    newPlayerTeamState.splice(defenderIndex, 1);
                 } else {
                     newPlayerTeamState[defenderIndex].hp -= damage;
                 }
                 setPlayerTeam(newPlayerTeamState);
                 setDamage(damage);
-                let defeatedMembers = 0;
-                newPlayerTeamState.forEach((member) => {
-                    if(member.hp == 0) {
-                        defeatedMembers += 1;
-                    }
-                });
                 if (defeatedMembers == playerTeam.length) {
                     setVictory(false);
                     window.location.href = "/victory";
@@ -150,19 +155,20 @@ export const playerDefense = (
             const evasionValue = playerTeam[evaderIndex].evasion;
             if (attackValue > (evasionValue + diceValue)) {
                 let newPlayerTeamState = [...playerTeam];
+                let defeatedMembers = 0;
                 if ((newPlayerTeamState[evaderIndex].hp - attackValue) < 0) {
                     newPlayerTeamState[evaderIndex].hp = 0;
+                    newPlayerTeamState.forEach((member) => {
+                        if(member.hp == 0) {
+                            defeatedMembers += 1;
+                        }
+                    });
+                    newPlayerTeamState.splice(evaderIndex, 1);
                 } else {
                     newPlayerTeamState[evaderIndex].hp -= attackValue;
                 }
                 setPlayerTeam(newPlayerTeamState);
                 setDamage(attackValue);
-                let defeatedMembers = 0;
-                newPlayerTeamState.forEach((member) => {
-                    if(member.hp == 0) {
-                        defeatedMembers += 1;
-                    }
-                });
                 if (defeatedMembers == playerTeam.length) {
                     setVictory(false);
                     window.location.href = "/victory";

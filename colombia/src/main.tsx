@@ -24,6 +24,9 @@ import Victory from "./routes/victory/Victory";
 //Providers
 import { BattleProvider } from "./context/BattleContext";
 
+//CSS
+import "/src/static/css/global.css";
+
 // Create a router (paths are relative to the root of the project)
 const router = createBrowserRouter([
   {

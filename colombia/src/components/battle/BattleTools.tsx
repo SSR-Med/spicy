@@ -73,7 +73,7 @@ const BattleTools = () => {
                     disabled={defenseTurn}
                     onClick={() => {
                         setDefenseDiceTurn(false);
-                        playerDefense(defenseChoice, playerTeam, setPlayerTeam, attackValue, diceValue, setDamage, setDefenseTurn, setChoiceTurn, setVictory);
+                        playerDefense(defenseChoice, playerTeam, setPlayerTeam, attackValue, setDamage, setDefenseTurn, setChoiceTurn, setVictory, setDiceValue);
                     }}
                     >
                         Tirar dado

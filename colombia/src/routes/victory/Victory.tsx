@@ -1,6 +1,3 @@
-// Dependencies
-import { Button } from "@mui/material";
-
 // Css
 import "/src/static/css/team/team.css";
 import "/src/static/css/team/card.css";
@@ -18,6 +15,8 @@ import { useBattle } from "../../hooks/useBattle";
 
 export default function Victory() {
   const { victory } = useBattle();
+
+  console.log(victory);
 
   if (victory) {
     return (
