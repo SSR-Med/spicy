@@ -3,28 +3,28 @@ import { createContext, FC, ReactNode, useState } from 'react';
 const battleTeam = [
     {
       name: "Milo",
-      hp: 100,
+      hp: 10,
       attack: 40,
       defense: 30,
       evasion: 30,
     },
     {
       name: "mazamorra",
-      hp: 100,
+      hp: 10,
       attack: 40,
       defense: 30,
       evasion: 30,
     },
     {
       name: "changua",
-      hp: 100,
+      hp: 10,
       attack: 40,
       defense: 30,
       evasion: 30,
     },
     {
       name: "ensalada",
-      hp: 100,
+      hp: 10,
       attack: 40,
       defense: 30,
       evasion: 30,
@@ -34,7 +34,7 @@ const battleTeam = [
 const enemyBattleTeam = [
   {
     name: "maria_juana",
-    hp: 50,
+    hp: 400,
     attack: 40,
     defense: 20,
     evasion: 10,
@@ -125,7 +125,7 @@ export const BattleProvider: FC<{ children: ReactNode }> = ({ children }) => {
             },
             attackValue,
             setAttackValue: (value) => {
-              setAttackValue(attackValue => attackValue = value);
+              setAttackValue(value);
             },
             enemyTeam,
             setEnemyTeam: (team) => {

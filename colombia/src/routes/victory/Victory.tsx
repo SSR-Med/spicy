@@ -10,13 +10,11 @@ import { staticUrlCard } from "../../helpers/StaticUrlCard";
 // Components
 import { createHomeFooter } from "../../components/home/HomeComponent";
 
-//hooks
-import { useBattle } from "../../hooks/useBattle";
+interface VictoryProps {
+  victory: boolean,
+}
 
-export default function Victory() {
-  const { victory } = useBattle();
-
-  console.log(victory);
+export default function Victory({ victory } : VictoryProps) {
 
   if (victory) {
     return (

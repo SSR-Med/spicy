@@ -144,7 +144,7 @@ export const playerDefense = (
                 setDamage(damage);
                 if (defeatedMembers == playerTeam.length) {
                     setVictory(false);
-                    window.location.href = "/victory";
+                    window.location.href = "/victory/lose";
                 }
             } else {
                 setDamage(0);
@@ -171,7 +171,7 @@ export const playerDefense = (
                 setDamage(attackValue);
                 if (defeatedMembers == playerTeam.length) {
                     setVictory(false);
-                    window.location.href = "/victory";
+                    window.location.href = "/victory/lose";
                 }
             } else {
                 setDamage(0);

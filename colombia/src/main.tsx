@@ -91,7 +91,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/victory",
-    element: <Victory />,
+    element: <Victory victory={true}/>,
+  },
+  {
+    path: "/victory/lose",
+    element: <Victory victory={false}/>,
   },
 ]);
 
