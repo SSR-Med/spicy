@@ -18,18 +18,20 @@ export default function Card(){
                         <div className="card-image">
                             <img src={getImage()}></img>
                         </div>
-                        <div className="card-name">
-                            <h1>Nombre: {getName()}</h1>
-                            <h1>Lvl: 1</h1>
-                        </div>
-                        <div className="card-attributes">
-                            <div className="card-attribute-game">
-                                <h1>Ataque: 15</h1>
-                                <h1>Defensa: 5</h1>
-                                <h1>Vida: 50</h1>
-                                <h1>Evasión: 22</h1>
+                        <div className="card-data">
+                            <div className="card-name">
+                                <h1>Nombre: {getName()}</h1>
+                                <h1>Lvl: 1</h1>
                             </div>
-                            <Button variant="contained" onClick = {() => setShowLevelUp(true)} sx = {{ ...buttonLevelCard, marginLeft: "2.5%" }}>Subir de Nivel</Button>
+                            <div className="card-attributes">
+                                <div className="card-attribute-game">
+                                    <h1>Ataque: 15</h1>
+                                    <h1>Defensa: 5</h1>
+                                    <h1>Vida: 50</h1>
+                                    <h1>Evasión: 22</h1>
+                                </div>
+                                <Button variant="contained" onClick = {() => setShowLevelUp(true)} sx = {{ ...buttonLevelCard, marginLeft: "2.5%" }}>Subir de Nivel</Button>
+                            </div>
                         </div>
                     </div>
                 </div>

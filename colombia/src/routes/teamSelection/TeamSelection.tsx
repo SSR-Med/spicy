@@ -8,7 +8,7 @@ import "/src/static/css/teamSelection/teamSelection.css";
 import { buttonThemeTeamSelection } from "../../styles/teamSelection/teamSelectionStyle";
 
 //Components
-import { createBattleTeamCard } from "../../components/teamSelection/TeamSelectionComponent";
+import { CreateBattleTeamCard } from "../../components/teamSelection/TeamSelectionComponent";
 
 //Page
 export default function TeamSelection() {
@@ -56,14 +56,14 @@ export default function TeamSelection() {
       <div className="team-selection-container">
         <div className="team-selection-secondary-container">
           {battleTeam.map((card) =>
-            createBattleTeamCard(
-              true,
-              card.name,
-              card.hp,
-              card.attack,
-              card.defense,
-              card.evasion
-            )
+            <CreateBattleTeamCard
+            isSelection={true}
+            urlImage={card.name}
+            hp={card.hp}
+            attack={card.attack}
+            defense={card.defense}
+            evasion={card.evasion}
+           />
           )}
         </div>
       </div>
