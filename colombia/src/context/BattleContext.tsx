@@ -3,28 +3,28 @@ import { createContext, FC, ReactNode, useState } from 'react';
 const battleTeam = [
     {
       name: "Milo",
-      hp: 10,
+      hp: 100,
       attack: 40,
       defense: 30,
       evasion: 30,
     },
     {
       name: "mazamorra",
-      hp: 10,
+      hp: 100,
       attack: 40,
       defense: 30,
       evasion: 30,
     },
     {
       name: "changua",
-      hp: 10,
+      hp: 100,
       attack: 40,
       defense: 30,
       evasion: 30,
     },
     {
       name: "ensalada",
-      hp: 10,
+      hp: 100,
       attack: 40,
       defense: 30,
       evasion: 30,
