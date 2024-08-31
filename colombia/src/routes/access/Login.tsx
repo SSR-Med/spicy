@@ -23,7 +23,7 @@ function Login() {
                     value={name} onChange={(e) => setName(e.target.value)}/>
                 <TextField label="Contraseña" variant="outlined"  sx={textFieldThemeLogin} type='password'
                     value={password} onChange={(e) => setPassword(e.target.value)}/>
-                <Button variant="contained" sx={buttonThemeLogin} onClick={() => loginUser(name,password,navigate)} >Iniciar Sesión</Button>
+                <Button variant="contained" sx={buttonThemeLogin} onClick={() => loginUser(name,password,navigate)} disabled={name === "" || password === ""} >Iniciar Sesión</Button>
             </div>
             <Button variant="contained" sx= {buttonThemeRegister} component={Link} to="/register">Registrarse</Button>
         </div>

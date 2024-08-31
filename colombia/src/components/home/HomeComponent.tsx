@@ -1,27 +1,42 @@
 // Dependencies
-import { useLocation } from "react-router-dom";
+import { NavigateFunction, useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 // Helpers
+import { refreshToken } from "../../helpers/API/Token";
 import { handleRedirect } from "../../helpers/HandleRedirect";
+import { getResources } from "../../helpers/API/user/UserHelper";
+
 export function createHomeHeaderElement(){
+
+    const [resources, setResources] = useState<Record<string,any>>({})
+
+    useEffect(() =>{
+        getResources().then((response) => {
+            setResources(response)
+        });
+    },[])
+
     return (
         <header className="home-header">
             <div className="home-config" onClick={() =>handleRedirect("/","configuration")}>
                 <h1>Usuario/Config</h1>
             </div>
             <div className="home-resources">
-                <h1>Recursos</h1>
+                <h1>Recursos: {`Tokens:${resources.tokens} | Energía:${resources.energy} | Boosters:${resources.boosters}`}</h1>
             </div>
         </header>
     )
 }
 
-export function createHomeFooterElement(labelPath: string, path:string){
+export function createHomeFooterElement(labelPath: string, path:string,
+    navigate: NavigateFunction
+){
     // Get location for background color    
     const location = useLocation();
     const isActive = location.pathname === "/"+path;
     // Redirect to the path
     const handleRedirectLevel = () => {
-        window.location.href = "/"+path;
+        navigate("/"+path)
     }
     
     return (
@@ -34,12 +49,17 @@ export function createHomeFooterElement(labelPath: string, path:string){
 }
 
 export function createHomeFooter(){
+    const navigate = useNavigate();
+    useEffect(() => {
+        refreshToken(navigate)
+    },[])
     return (
         <div className="home-footer">
-            {createHomeFooterElement("Inicio", "home")}
-            {createHomeFooterElement("Historia", "map")}
-            {createHomeFooterElement("Unidades", "team")}
-            {createHomeFooterElement("Gacha", "gacha")}
+            {createHomeFooterElement("Inicio", "home",navigate)}
+            {createHomeFooterElement("Historia", "map",navigate)}
+            {createHomeFooterElement("Unidades", "team",navigate)}
+            {createHomeFooterElement("Gacha", "gacha",navigate)}       
+            {createHomeFooterElement("Salir","",navigate)} 
         </div>
     )
 

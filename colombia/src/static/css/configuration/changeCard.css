@@ -8,9 +8,32 @@
     left: 50%;
     transform: translate(-50%, -50%);
     border: 2px solid black;
+    display: flex;
+    justify-content: center;
 }
 
 .admin-items {
-    margin: 2.5%;
-    color: white;
+    width: 80%;
+    height: 100%;
+    align-self: center;
+}
+
+.search-table-container{
+    display: flex;
+    margin-bottom: 1vh;
+}
+
+.table{
+    height: 37vh;
+    width: 100%;
+    overflow: auto;
+    margin-bottom: 1vh;
+}
+
+.table-modify{
+    display: flex;
+    justify-content: space-around;
+}
+.swal2-container{
+    z-index: 10000;
 }

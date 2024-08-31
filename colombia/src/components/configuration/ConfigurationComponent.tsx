@@ -1,23 +1,11 @@
 // Dependencies
-import Swal from 'sweetalert2';
+import { useEffect,useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 // Helpers
 import { handleRedirect } from "../../helpers/HandleRedirect";
 import { emptyFunction } from '../../helpers/EmptyFunction';
-
-
-// Alert
-async function handleDeleteAccount() {
-    const result = await Swal.fire({
-      title: '¿Está seguro de borrar su cuenta?',
-      text: "Perderá todo su progreso y no podrá recuperarlo.",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#D73636',
-      cancelButtonColor: '#3085d6',
-      confirmButtonText: 'Sí, borrar cuenta',
-      cancelButtonText: 'Cancelar'
-    });
-}
+import { getName, getRole, deleteSelf } from '../../helpers/API/user/UserHelper';
+import { englishRole2Spanish } from '../../constants/Constants';
 
 
 // Create configuration element
@@ -36,8 +24,22 @@ export function createConfigurationElement(nombre:string,color:string, pointer:b
 
 // Select list of elements
 function selectConfiguration(admin:boolean){
+
+    const [name, setName] = useState<string>("");
+    const [role, setRole] = useState<string>("");
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        getName().then((response) => {
+            setName(response);
+        });
+        getRole().then((response) => {
+            setRole(englishRole2Spanish[response]);
+        });
+    })
+
     const baseElements = [
-        {nombre:"Nombre de usuario",color:"#369DD7",pointer:false,onClick:() => emptyFunction()},
+        {nombre:`${name}: ${role}`,color:"#369DD7",pointer:false,onClick:() => emptyFunction()},
     ];
     const adminElements = [
         {nombre:"Modificar cuentas",color:"#369DD7",pointer:true,onClick:() => handleRedirect("/","configuration/accounts")},
@@ -45,7 +47,7 @@ function selectConfiguration(admin:boolean){
     ];
     const userElements = [
         {nombre:"Modificar contraseña",color:"#369DD7",pointer:true,onClick:() => handleRedirect("/","configuration/pass")},
-        {nombre:"Eliminar cuenta",color:"#D73636",pointer:true,onClick:handleDeleteAccount},
+        {nombre:"Eliminar cuenta",color:"#D73636",pointer:true,onClick: () => deleteSelf(navigate)},
     ];
     return admin ? baseElements.concat(adminElements) : baseElements.concat(userElements);
 }
