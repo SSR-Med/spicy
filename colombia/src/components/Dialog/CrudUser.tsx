@@ -38,7 +38,7 @@ export default function crudUser(open:boolean,setOpen:React.Dispatch<React.SetSt
                 setOpen(false)
                 Swal.fire({
                     title: "Error",
-                    text: "No se ha seleccionado un usuario",
+                    text: "No se ha seleccionado un item",
                     icon: "error",
                     confirmButtonText: "Aceptar"
                 })
