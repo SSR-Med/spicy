@@ -8,11 +8,12 @@ import { getResources } from "../../helpers/API/user/UserHelper";
 
 export function createHomeHeaderElement(){
 
-    const [resources, setResources] = useState<Record<string,any>>({})
+
+    const [resources, setResources] = useState<string>("")
 
     useEffect(() =>{
         getResources().then((response) => {
-            setResources(response)
+            setResources(`Recursos: Tokens:${response.tokens} | Energía:${response.energy} | Maggi:${response.maggi.quantity} | Ricostilla:${response.ricostilla.quantity}`)
         });
     },[])
 
@@ -22,7 +23,7 @@ export function createHomeHeaderElement(){
                 <h1>Usuario/Config</h1>
             </div>
             <div className="home-resources">
-                <h1>Recursos: {`Tokens:${resources.tokens} | Energía:${resources.energy} | Boosters:${resources.boosters}`}</h1>
+                <h1>{resources}</h1>
             </div>
         </header>
     )

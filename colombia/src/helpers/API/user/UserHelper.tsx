@@ -164,12 +164,28 @@ export async function getRole(){
 
 export async function getResources(){
     try {
-        const response = await axios.get(`${API_URL}/user/resources`,{
+        const userData = await axios.get(`${API_URL}/user/resources`,{
             headers: {
                 Authorization: `Bearer ${Cookies.get("token")}`
             }
         })
-        return response.data
+        const responseData: Record<string,any> = {}
+        for(const key in userData.data){
+            responseData[key] = userData.data[key]
+        }
+
+        const items = await axios.get(`${API_URL}/user/item/quantity`,{
+            headers: {
+                Authorization: `Bearer ${Cookies.get("token")}`
+            }
+        })
+
+        for(const key in items.data){
+            responseData[key] = items.data[key]
+        }
+        
+        return responseData
+
     } catch (error:any) {
         return {}
     }
