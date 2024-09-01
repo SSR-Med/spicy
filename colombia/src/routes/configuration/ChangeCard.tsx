@@ -30,7 +30,6 @@ export default function ChangeCard(){
     // Select values map
     const mapSelectValuesSearch: Record<string,string> = {
         "name": "string",
-        "rarity": "string",
     }
     // Rows and columns
     // Rows
@@ -52,7 +51,7 @@ export default function ChangeCard(){
             <main className="home-main">
                 <div className="admin-configuration">
                     <div className="admin-items">
-                        <h1>Configuración de usuarios</h1>
+                        <h1>Configuración de cartas</h1>
                             <Button variant="contained" sx={crudButtonStyle} onClick={
                                 () => {
                                     setOpen(true)
@@ -62,7 +61,6 @@ export default function ChangeCard(){
                             {searchValues({
                                 selectMap: {
                                     "name": "Nombre",
-                                    "rarity": "Rareza",
                                 },
                                 searchState: {
                                     getter: searchValue,

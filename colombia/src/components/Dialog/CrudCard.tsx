@@ -15,10 +15,10 @@ export default function crudCard(open:boolean,setOpen:React.Dispatch<React.SetSt
 ){
     // Variables
     // Title & Button
-    const title = request == "POST" ? "Crear usuario": "Modificar usuario"
+    const title = request == "POST" ? "Crear carta": "Modificar carta"
     // States
     const [name, setName] = useState<string>("")
-    const [rarity, setRarity] = useState<string>("")
+    const [rarity, setRarity] = useState<number>(0)
     const [health, setHealth] = useState<number>(0)
     const [attack, setAttack] = useState<number>(0)
     const [defense, setDefense] = useState<number>(0)
@@ -47,7 +47,7 @@ export default function crudCard(open:boolean,setOpen:React.Dispatch<React.SetSt
         }
         else{
             setName("")
-            setRarity("")
+            setRarity(0)
             setHealth(0)
             setAttack(0)
             setDefense(0)
@@ -67,8 +67,9 @@ export default function crudCard(open:boolean,setOpen:React.Dispatch<React.SetSt
                 variant="filled" label="Nombre" sx={crudDialogTextField}/>
                 <TextField
                 fullWidth
+                type = "number"
                 value={rarity}
-                onChange={(e) => setRarity(e.target.value)}
+                onChange={(e) => setRarity(parseFloat(e.target.value))}
                 variant="filled" label="Rareza" sx={crudDialogTextField}/>
                 <TextField
                 fullWidth
