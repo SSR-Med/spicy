@@ -24,7 +24,6 @@ export default function crudUser(open:boolean,setOpen:React.Dispatch<React.SetSt
     const [role, setRole] = useState<string>("")
     const [tokens, setTokens] = useState<number>(0)
     const [energy, setEnergy] = useState<number>(0)
-    const [boosters, setBoosters] = useState<number>(0)
     // Change value of states if request is PUT
     useEffect(() => {
         if (request === "PUT"){
@@ -50,7 +49,6 @@ export default function crudUser(open:boolean,setOpen:React.Dispatch<React.SetSt
             setRole("")
             setTokens(0)
             setEnergy(0)
-            setBoosters(0)
         }
     },[open,modifyRow])
     return (
@@ -90,11 +88,6 @@ export default function crudUser(open:boolean,setOpen:React.Dispatch<React.SetSt
                 value={energy}
                 onChange={(e) => setEnergy(parseInt(e.target.value))}
                 variant="filled" label="Energía" sx={crudDialogTextField} type="number"/>
-                <TextField
-                fullWidth
-                value={boosters}
-                onChange={(e) => setBoosters(parseInt(e.target.value))}
-                variant="filled" label="Boosters" sx={crudDialogTextField} type="number"/>
             </DialogContent>
             <DialogActions>
                 <Button variant="contained" sx={crudDialogButton} onClick={() => setOpen(false)}>Cancelar</Button>
@@ -105,8 +98,7 @@ export default function crudUser(open:boolean,setOpen:React.Dispatch<React.SetSt
                             password: password === "" ? null : password,
                             role: role,
                             tokens: tokens,
-                            energy: energy,
-                            boosters: boosters
+                            energy: energy
                         };
                         if (modifyRow != null && request === "PUT") {
                             modifyUser({...requestData, id: modifyRow.id});

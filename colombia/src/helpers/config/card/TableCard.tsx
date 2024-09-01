@@ -35,5 +35,10 @@ export const columnsCard: GridColDef[] = [{
     field: "evasion",
     headerName: "Evasión",
     flex: 1
-}
+},
+{
+    field: "xp_limit",
+    headerName: "Límite de XP",
+    flex: 1
+},
 ]

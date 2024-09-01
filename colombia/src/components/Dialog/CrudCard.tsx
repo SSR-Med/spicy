@@ -23,6 +23,7 @@ export default function crudCard(open:boolean,setOpen:React.Dispatch<React.SetSt
     const [attack, setAttack] = useState<number>(0)
     const [defense, setDefense] = useState<number>(0)
     const [evasion, setEvasion] = useState<number>(0)
+    const [xpLimit, setXpLimit] = useState<number>(0)
     // Change value of states if request is PUT
     useEffect(() => {
         if (request === "PUT"){
@@ -34,6 +35,7 @@ export default function crudCard(open:boolean,setOpen:React.Dispatch<React.SetSt
                 setAttack(modifyRow.attack)
                 setDefense(modifyRow.defense)
                 setEvasion(modifyRow.evasion)
+                setXpLimit(modifyRow.xpLimit)
             }
             else{
                 setOpen(false)
@@ -52,6 +54,7 @@ export default function crudCard(open:boolean,setOpen:React.Dispatch<React.SetSt
             setAttack(0)
             setDefense(0)
             setEvasion(0)
+            setXpLimit(0)
         }
     },[open,modifyRow])
     return (
@@ -95,6 +98,12 @@ export default function crudCard(open:boolean,setOpen:React.Dispatch<React.SetSt
                 type= "number"
                 onChange={(e) => setEvasion(parseInt(e.target.value))}
                 variant="filled" label="Evasión" sx={crudDialogTextField}/>
+                <TextField
+                fullWidth
+                value={xpLimit}
+                type= "number"
+                onChange={(e) => setXpLimit(parseInt(e.target.value))}
+                variant="filled" label="Límite de XP" sx={crudDialogTextField}/>
             </DialogContent>
             <DialogActions>
                 <Button variant="contained" sx={crudDialogButton} onClick={() => setOpen(false)}>Cancelar</Button>
@@ -106,7 +115,8 @@ export default function crudCard(open:boolean,setOpen:React.Dispatch<React.SetSt
                             health: health,
                             attack: attack,
                             defense: defense,
-                            evasion: evasion
+                            evasion: evasion,
+                            xp_limit: xpLimit
                         };
                         if (modifyRow != null && request === "PUT") {
                             modifyCard({...requestData, id: modifyRow.id});

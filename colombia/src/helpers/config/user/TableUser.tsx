@@ -34,11 +34,6 @@ export const columnsUser: GridColDef[] = [{
     field: "energy",
     headerName: "Energía",
     flex: 1
-},
-{
-    field: "boosters",
-    headerName: "Boosters",
-    flex: 1
 }
 ]
 
