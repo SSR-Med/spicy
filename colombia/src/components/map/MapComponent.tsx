@@ -17,8 +17,6 @@ export function createMapDiv(image: string, city: string, hidden:boolean = false
                 <img src="/src/static/images/map/candado.png" alt="hidden" className="map-hidden"/>
             }
         </div>
-        
-
       </div>
     );
   }
