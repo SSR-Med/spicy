@@ -13,15 +13,15 @@ const handleRedirectHome = () => {
 }
 
 function Map(){
-    const [worlds, setWorlds] = useState<{id: string, name: string, urlImage: string, hidden: boolean}[]>([]);
+    const [worlds, setWorlds] = useState<{id: number, name: string, urlImage: string, hidden: boolean}[]>([]);
 
     useEffect(() => {
-        let _worlds : {id: string, name: string, urlImage: string, hidden: boolean}[] = [];
-        getWorlds().then((result) => _worlds.push(...result));
-        setWorlds(_worlds);
+        getWorlds().then((result) => {
+            if (worlds.length === 0) {
+                setWorlds(result)
+            }
+        });
     }, []);
-
-    console.log(...worlds);
 
     return (
         <div className="colombia-map">
@@ -29,22 +29,10 @@ function Map(){
                 <div className="home-map" onClick={handleRedirectHome}>
                     <h1>Inicio</h1>
                 </div>
-                {createMapDiv("/src/static/images/map/bellokistan.jfif","Bellokistán")}
-                {createMapDiv("/src/static/images/map/bogotrash.jfif","Bogotrash",true)}
-
+                {worlds.map((world: {id: number, name: string, urlImage: string, hidden: boolean}) => createMapDiv(world.urlImage, world.name, world.hidden, world.id))}
             </div>
         </div>
-    )
-    // return (
-    //     <div className="colombia-map">
-    //         <div className="level-map">
-    //             <div className="home-map" onClick={handleRedirectHome}>
-    //                 <h1>Inicio</h1>
-    //             </div>
-    //             {worlds.map((world: {id: string, name: string, urlImage: string, hidden: boolean}) => createMapDiv(world.urlImage, world.name, world.hidden))}
-    //         </div>
-    //     </div>
-    // );
+    );
 }
 
 export default Map;

@@ -1,4 +1,4 @@
-export function createSummaryLevel(difficulty: string, energy: string, treasury: string, id: number){
+export function createSummaryLevel(name: string, level: string, id: number) {
     
     const handleRedirectLevel = () => {
         const url = window.location.href;
@@ -6,10 +6,9 @@ export function createSummaryLevel(difficulty: string, energy: string, treasury:
     }
     
     return (
-        <div className="summary-level" onClick={handleRedirectLevel}>
-            <p>Nivel: {difficulty}</p>
-            <p>Energía: {energy}</p>
-            <p>Recompensa: {treasury}</p>
+        <div className="summary-level" onClick={handleRedirectLevel} key={id}>
+            <p>{name}</p>
+            <p>Nivel: {level}</p>
         </div>
     )
 }

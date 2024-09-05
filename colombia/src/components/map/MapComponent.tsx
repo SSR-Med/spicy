@@ -1,6 +1,6 @@
 // Helpers
 import { handleRedirect } from "../../helpers/HandleRedirect";
-export function createMapDiv(image: string, city: string, hidden:boolean = false) {
+export function createMapDiv(image: string, city: string, hidden:boolean = false, id: number) {
     // MapDivs
     return (
       <div className="map" style={
@@ -10,7 +10,7 @@ export function createMapDiv(image: string, city: string, hidden:boolean = false
             filter: hidden ? "brightness(50%)" : "brightness(100%)",
             border: "4px solid black",
             cursor: hidden ? "default" : "pointer"
-        }} onClick={() => handleRedirect("/map/",city)}>
+        }} onClick={() => handleRedirect("/map/",id)} key={id}>
         <div className="map-flex">
             <h1>{city}</h1>
             {hidden && 

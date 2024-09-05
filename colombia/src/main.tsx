@@ -42,7 +42,7 @@ const router = createBrowserRouter([
     element: <Map />,
   },
   {
-    path: "/map/:levelName",
+    path: "/map/:levelId",
     element: <Map_Level />,
   },
   {

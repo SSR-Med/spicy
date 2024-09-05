@@ -22,3 +22,21 @@ export const getWorlds = async () => {
         return []
     }
 };
+
+export const getMissionByWorld = async (worldId: number) => {
+    try {
+        const response = await axios.get(`${API_URL}/world/${worldId}`, {
+            headers : {
+                Authorization: `Bearer ${Cookies.get("token")}`
+            }
+        });
+        return response.data;
+    } catch (error: any) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: error.response.data.message
+        });
+        return []
+    }
+}
