@@ -86,7 +86,7 @@ const router = createBrowserRouter([
     element: <TeamSelection />,
   },
   {
-    path: "/battle",
+    path: "/battle/:missionId",
     element: <Battle />,
   },
   {

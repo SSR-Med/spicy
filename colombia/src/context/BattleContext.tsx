@@ -31,15 +31,15 @@ const battleTeam = [
     },
   ];
 
-const enemyBattleTeam = [
-  {
-    name: "maria_juana",
-    hp: 400,
-    attack: 40,
-    defense: 20,
-    evasion: 10,
-  },
-];
+// const enemyBattleTeam = [
+//   {
+//     name: "maria_juana",
+//     hp: 400,
+//     attack: 40,
+//     defense: 20,
+//     evasion: 10,
+//   },
+// ];
 
 interface BattleContextValue {
     choiceTurn: boolean,
@@ -56,8 +56,8 @@ interface BattleContextValue {
     setAttackTurn: (value: boolean) => void,
     attackValue: number,
     setAttackValue: (value: number) => void,
-    enemyTeam: {name: string, hp: number, attack: number, defense: number, evasion: number}[],
-    setEnemyTeam: (team: {name: string, hp: number, attack: number, defense: number, evasion: number}[]) => void,
+    enemyTeam: {name: string, health: number, attack: number, defense: number, evasion: number}[],
+    setEnemyTeam: (team: {name: string, health: number, attack: number, defense: number, evasion: number}[]) => void,
     enemyDefenseTurn: boolean,
     setEnemyDefenseTurn: (value: boolean) => void,
     defenseChoice: string,
@@ -86,7 +86,7 @@ export const BattleProvider: FC<{ children: ReactNode }> = ({ children }) => {
     const [diceValue, setDiceValue] = useState(0);
     const [attackTurn, setAttackTurn] = useState(false);
     const [attackValue, setAttackValue] = useState(0);
-    const [enemyTeam, setEnemyTeam] = useState(enemyBattleTeam);
+    const [enemyTeam, setEnemyTeam] = useState<{name: string, health: number, attack: number, defense: number, evasion: number}[]>([]);
     const [enemyDefenseTurn, setEnemyDefenseTurn] = useState(false);
     const [defenseChoice, setDefenseChoice] = useState("");
     const [damage, setDamage] = useState(0);
