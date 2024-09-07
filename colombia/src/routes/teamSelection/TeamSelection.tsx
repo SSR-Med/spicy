@@ -48,7 +48,8 @@ export default function TeamSelection() {
   };
 
   const handleRedirectBattle = () => {
-    window.location.href = "/battle";
+    const missionId = Number(window.location.pathname.split("/")[3]);
+    window.location.href = `/battle/${missionId}`;
   };
 
   return (

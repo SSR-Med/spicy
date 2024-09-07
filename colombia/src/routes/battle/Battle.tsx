@@ -8,10 +8,23 @@ import BattleTurnIndicator from "../../components/battle/BattleTurnIndicator";
 import BattleTools from "../../components/battle/BattleTools";
 
 //Hooks
+import { useEffect } from "react";
 import { useBattle } from "../../hooks/useBattle";
 
+//Helpers
+import { getEnemiesByMission } from "./actions";
+
 export default function Battle() {
-  const { playerTeam, enemyTeam } = useBattle();
+  const { playerTeam, enemyTeam, setEnemyTeam } = useBattle();
+
+  useEffect(() => {
+    const missionId = Number(window.location.pathname.split("/")[2]);
+    getEnemiesByMission(missionId).then((enemies) => {
+      if (enemyTeam.length === 0) {
+        setEnemyTeam(enemies.map((enemy: {card: {name: string, health: number, attack: number, defense: number, evasion: number}, cardId: number, id: number}) => enemy.card));
+      }
+    })
+  }, []);
 
   return (
     <main className="battle-main">
@@ -23,7 +36,7 @@ export default function Battle() {
             <CreateEnemyTeamCard
             key={card.name} 
             urlImage={card.name}
-            hp={card.hp}
+            hp={card.health}
             attack={card.attack}
             defense={card.defense}
             evasion={card.evasion}
