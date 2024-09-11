@@ -62,7 +62,7 @@ const router = createBrowserRouter([
     element: <Team />,
   },
   {
-    path: "/team/:cardName",
+    path: "/team/:userCardId",
     element: <Card />,
   },
   {
