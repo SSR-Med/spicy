@@ -2,18 +2,24 @@
 import { staticUrlCard } from "../../helpers/StaticUrlCard";
 import { handleRedirect } from "../../helpers/HandleRedirect";
 
+//Hooks
+import { useState, useEffect } from "react";
+
+//Helpers
+import { getCardsByUser } from "./actions";
+
 //Get only the name of the image
 export function getCardName(image: string) {
   return image.replace(".", "@");
 }
 
 // Create card
-export function createTeamCard(urlImage: string) {
+export function createTeamCard(urlImage: string, userCardId: string) {
   return (
-    <div className="team-card">
+    <div className="team-card" key={urlImage}>
       <img
         src={staticUrlCard(urlImage)}
-        onClick={() => handleRedirect("/team/", getCardName(urlImage))}
+        onClick={() => handleRedirect("/team/", userCardId)}
       ></img>
     </div>
   );
@@ -21,30 +27,29 @@ export function createTeamCard(urlImage: string) {
 
 // Create all cards
 export function createTeamCardGroup(page: number) {
+  const [userCards, setUserCards] = useState<{id: string, level: number, xp: number, attack: number, evasion: number, defense: number, health: number, card: { name: string }}[]>([]);
+
+  useEffect(() => {
+    if (userCards.length === 0) {
+      getCardsByUser().then((cards) => {
+        setUserCards(cards);
+      });
+    }
+  }, []);
   // Fake pages
-  const pages: { [key: number]: { info: { name: string }[] } } = {
+  const pages: { [key: number]: { info: {id: string, level: number, xp: number, attack: number, evasion: number, defense: number, health: number, card: { name: string }}[] } } = {
     1: {
-      info: [
-        { name: "monita" },
-        { name: "platano" },
-        { name: "burra" },
-        { name: "aguardiente" },
-      ],
+      info: userCards.slice(0, 4),
     },
     2: {
-      info: [
-        { name: "vive_100" },
-        { name: "torta_envinada" },
-        { name: "te_valeriana" },
-        { name: "perrito" },
-      ],
-    },
+      info: userCards.slice(4),
+    }
   };
 
   return (
     <div className="team-secondary-container">
-      {pages[page].info.map((element: Record<string, string>) =>
-        createTeamCard(element.name)
+      {pages[page].info.map((element: {id: string, level: number, xp: number, attack: number, evasion: number, defense: number, health: number, card: { name: string }}) =>
+        createTeamCard(element.card.name, element.id)
       )}
     </div>
   );

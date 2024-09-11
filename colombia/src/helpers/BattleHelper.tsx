@@ -11,8 +11,8 @@ export const playerAttack = (
     setDiceValue: (value: number) => void,
     setAttackValue: (value: number) => void,
     setAttackTurn: (value: boolean) => void,
-    enemyTeam: {name: string, hp: number, attack: number, defense: number, evasion: number}[],
-    setEnemyTeam: (team: {name: string, hp: number, attack: number, defense: number, evasion: number}[]) => void,
+    enemyTeam: {name: string, health: number, attack: number, defense: number, evasion: number}[],
+    setEnemyTeam: (team: {name: string, health: number, attack: number, defense: number, evasion: number}[]) => void,
     setEnemyDefenseTurn: (value: boolean) => void,
     setDefenseChoice: (value: string) => void,
     setDamage: (value: number) => void,
@@ -33,16 +33,16 @@ export const playerAttack = (
                 if (attack > (defenseValue + enemyDiceResult)) {
                     const damage = attack - (defenseValue + enemyDiceResult);
                     let newEnemyTeamState = [...enemyTeam];
-                    if ((newEnemyTeamState[defenderIndex].hp - damage) < 0) {
-                        newEnemyTeamState[defenderIndex].hp = 0;
+                    if ((newEnemyTeamState[defenderIndex].health - damage) < 0) {
+                        newEnemyTeamState[defenderIndex].health = 0;
                         newEnemyTeamState.forEach((member) => {
-                            if (member.hp == 0) {
+                            if (member.health == 0) {
                                 defeatedMembers += 1;
                             }
                         });
                         newEnemyTeamState.splice(defenderIndex, 1);
                     } else {
-                        newEnemyTeamState[defenderIndex].hp -= damage;
+                        newEnemyTeamState[defenderIndex].health -= damage;
                     }
                     setEnemyTeam(newEnemyTeamState);
                     if (defeatedMembers == enemyTeam.length) {
@@ -63,16 +63,16 @@ export const playerAttack = (
                     setDamage(0);
                 } else {
                     let newEnemyTeamState = [...enemyTeam];
-                    if ((newEnemyTeamState[evadorIndex].hp - attack) < 0) {
-                        newEnemyTeamState[evadorIndex].hp = 0;
+                    if ((newEnemyTeamState[evadorIndex].health - attack) < 0) {
+                        newEnemyTeamState[evadorIndex].health = 0;
                         newEnemyTeamState.forEach((member) => {
-                            if (member.hp == 0) {
+                            if (member.health == 0) {
                                 defeatedMembers += 1;
                             }
                         });
                         newEnemyTeamState.splice(evadorIndex, 1);
                     } else {
-                        newEnemyTeamState[evadorIndex].hp -= attack;
+                        newEnemyTeamState[evadorIndex].health -= attack;
                     }
                     setEnemyTeam(newEnemyTeamState);
                     setDamage(attack);
@@ -91,7 +91,7 @@ export const playerAttack = (
 
 export const enemyAttack = (
     setAttackValue: (value: number) => void,
-    enemyTeam: {name: string, hp: number, attack: number, defense: number, evasion: number}[],
+    enemyTeam: {name: string, health: number, attack: number, defense: number, evasion: number}[],
     setEnemyDefenseTurn: (value: boolean) => void,
     setEnemyAttackTurn: (value: boolean) => void,
     setDefenseChoiceTurn: (value: boolean) => void,
