@@ -10,6 +10,7 @@ interface BattleTeamProps {
   attack: number;
   defense: number;
   evasion: number;
+  key: number;
 }
 
 export function CreateBattleTeamCard({

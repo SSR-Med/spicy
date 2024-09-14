@@ -13,17 +13,25 @@ import { useBattle } from "../../hooks/useBattle";
 
 //Helpers
 import { getEnemiesByMission } from "./actions";
+import { getTeamCards } from "../teamSelection/actions";
+import { PlaylistRemove } from "@mui/icons-material";
 
 export default function Battle() {
-  const { playerTeam, enemyTeam, setEnemyTeam } = useBattle();
+  const { playerTeam, setPlayerTeam, enemyTeam, setEnemyTeam } = useBattle();
 
   useEffect(() => {
     const missionId = Number(window.location.pathname.split("/")[2]);
-    getEnemiesByMission(missionId).then((enemies) => {
-      if (enemyTeam.length === 0) {
+    if (enemyTeam.length === 0) {
+      getEnemiesByMission(missionId).then((enemies) => {
         setEnemyTeam(enemies.map((enemy: {card: {name: string, health: number, attack: number, defense: number, evasion: number}, cardId: number, id: number}) => enemy.card));
-      }
-    })
+      });  
+    }
+
+    if (playerTeam.length === 0) {
+      getTeamCards().then((cards) => {
+        setPlayerTeam(cards);
+      });
+    }
   }, []);
 
   return (
@@ -49,13 +57,13 @@ export default function Battle() {
         <div className="battle-character-container">
           {playerTeam.map((card) =>
             <CreateBattleTeamCard
-              key={card.name}
+              key={card.id}
               isSelection={false}
-              urlImage={card.name}
-              hp={card.hp}
-              attack={card.attack}
-              defense={card.defense}
-              evasion={card.evasion}
+              urlImage={card.cardxuser.card.name}
+              hp={card.cardxuser.health}
+              attack={card.cardxuser.attack}
+              defense={card.cardxuser.defense}
+              evasion={card.cardxuser.evasion}
              />
           )}
         </div>

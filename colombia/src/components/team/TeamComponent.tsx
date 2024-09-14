@@ -16,7 +16,7 @@ export function getCardName(image: string) {
 // Create card
 export function createTeamCard(urlImage: string, userCardId: string) {
   return (
-    <div className="team-card" key={urlImage}>
+    <div className="team-card" key={userCardId}>
       <img
         src={staticUrlCard(urlImage)}
         onClick={() => handleRedirect("/team/", userCardId)}

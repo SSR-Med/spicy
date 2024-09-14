@@ -82,7 +82,7 @@ const router = createBrowserRouter([
     element: <ChangeUser />,
   },
   {
-    path: "/map/:levelName/:id",
+    path: "/map/:levelId/:id",
     element: <TeamSelection />,
   },
   {

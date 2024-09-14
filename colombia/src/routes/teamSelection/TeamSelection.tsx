@@ -10,38 +10,30 @@ import { buttonThemeTeamSelection } from "../../styles/teamSelection/teamSelecti
 //Components
 import { CreateBattleTeamCard } from "../../components/teamSelection/TeamSelectionComponent";
 
+//Hooks
+import { useState, useEffect } from "react";
+import { createTeamCard, getTeamCards } from "./actions";
+import { getCardsByUser } from "../../components/team/actions";
+
 //Page
 export default function TeamSelection() {
-  const battleTeam = [
-    {
-      name: "Milo",
-      hp: 100,
-      attack: 20,
-      defense: 15,
-      evasion: 15,
-    },
-    {
-      name: "mazamorra",
-      hp: 100,
-      attack: 20,
-      defense: 15,
-      evasion: 15,
-    },
-    {
-      name: "changua",
-      hp: 100,
-      attack: 20,
-      defense: 15,
-      evasion: 15,
-    },
-    {
-      name: "ensalada",
-      hp: 100,
-      attack: 20,
-      defense: 15,
-      evasion: 15,
-    },
-  ];
+  const [userTeam, setUserTeam] = useState<{id: number, cardxuser: {attack: number, evasion: number, defense: number, health: number, card: { name: string }}}[]>([]);
+
+  useEffect(() => {
+    if (userTeam.length === 0) {
+      getTeamCards().then((cards) => {
+        if (cards.length > 0) {
+          setUserTeam(cards);
+        } else {
+          getCardsByUser().then((cards) => {
+            cards.slice(4).forEach((card: {id: string, id_user: string}) => {
+              createTeamCard({userId: Number(card.id_user), userCardId: Number(card.id)}).then((response) => console.log(response));
+            });
+          });
+        }
+      });
+    }
+  }, []);
 
   const handleRedirectMap = () => {
     window.location.href = "/map";
@@ -56,15 +48,16 @@ export default function TeamSelection() {
     <main className="team-selection">
       <div className="team-selection-container">
         <div className="team-selection-secondary-container">
-          {battleTeam.map((card) =>
-            <CreateBattleTeamCard
+          {userTeam.map((teamCard) => 
+            <CreateBattleTeamCard 
             isSelection={true}
-            urlImage={card.name}
-            hp={card.hp}
-            attack={card.attack}
-            defense={card.defense}
-            evasion={card.evasion}
-           />
+            urlImage={teamCard.cardxuser.card.name}
+            hp={teamCard.cardxuser.health}
+            attack={teamCard.cardxuser.attack}
+            defense={teamCard.cardxuser.defense}
+            evasion={teamCard.cardxuser.evasion}
+            key={teamCard.id}
+            />
           )}
         </div>
       </div>
