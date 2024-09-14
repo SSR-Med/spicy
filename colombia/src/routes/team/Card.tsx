@@ -5,7 +5,7 @@ import { useState, useEffect } from "react"
 import "/src/static/css/team/card.css"
 // Components
 import { createHomeFooter } from "../../components/home/HomeComponent"
-import { getImage, getName, LevelUp } from "../../components/team/CardComponent"
+import { LevelUp } from "../../components/team/CardComponent"
 // Styles
 import { buttonLevelCard } from "../../styles/team/CardStyle"
 //Helpers

@@ -1,51 +1,41 @@
 import { createContext, FC, ReactNode, useState } from 'react';
 
-const battleTeam = [
-    {
-      name: "Milo",
-      hp: 100,
-      attack: 40,
-      defense: 30,
-      evasion: 30,
-    },
-    {
-      name: "mazamorra",
-      hp: 100,
-      attack: 40,
-      defense: 30,
-      evasion: 30,
-    },
-    {
-      name: "changua",
-      hp: 100,
-      attack: 40,
-      defense: 30,
-      evasion: 30,
-    },
-    {
-      name: "ensalada",
-      hp: 100,
-      attack: 40,
-      defense: 30,
-      evasion: 30,
-    },
-  ];
-
-// const enemyBattleTeam = [
-//   {
-//     name: "maria_juana",
-//     hp: 400,
-//     attack: 40,
-//     defense: 20,
-//     evasion: 10,
-//   },
-// ];
+// const battleTeam = [
+//     {
+//       name: "Milo",
+//       hp: 100,
+//       attack: 40,
+//       defense: 30,
+//       evasion: 30,
+//     },
+//     {
+//       name: "mazamorra",
+//       hp: 100,
+//       attack: 40,
+//       defense: 30,
+//       evasion: 30,
+//     },
+//     {
+//       name: "changua",
+//       hp: 100,
+//       attack: 40,
+//       defense: 30,
+//       evasion: 30,
+//     },
+//     {
+//       name: "ensalada",
+//       hp: 100,
+//       attack: 40,
+//       defense: 30,
+//       evasion: 30,
+//     },
+//   ];
 
 interface BattleContextValue {
     choiceTurn: boolean,
     setChoiceTurn: (value:boolean) => void,
-    playerTeam: {name: string, hp: number, attack: number, defense: number, evasion: number}[],
-    setPlayerTeam: (team: {name: string, hp: number, attack: number, defense: number, evasion: number}[]) => void,
+    playerTeam: {id: number, cardxuser: {attack: number, evasion: number, defense: number, health: number, card: { name: string }}}[],
+    setPlayerTeam: (team: {id: number, cardxuser: {attack: number, evasion: number, defense: number, health: number, card: { name: string }}}[]) => void,
     playerChoice: {name: string, hp: number, attack: number, defense: number, evasion: number},
     setPlayerChoice: (team: {name: string, hp: number, attack: number, defense: number, evasion: number}) => void,
     attackChoiceTurn: boolean,
@@ -80,7 +70,7 @@ export const BattleContext = createContext<BattleContextValue | null>(null);
 
 export const BattleProvider: FC<{ children: ReactNode }> = ({ children }) => {
     const [choiceTurn, setChoiceTurn] = useState(true);
-    const [playerTeam, setPlayerTeam] = useState<{name: string, hp: number, attack: number, defense: number, evasion: number}[]>(battleTeam);
+    const [playerTeam, setPlayerTeam] = useState<{id: number, cardxuser: {attack: number, evasion: number, defense: number, health: number, card: { name: string }}}[]>([]);
     const [playerChoice, setPlayerChoice] = useState<{name: string, hp: number, attack: number, defense: number, evasion: number}>({name: "", hp: 0, attack: 0, defense: 0, evasion: 0});
     const [attackChoiceTurn, setAttackChoiceTurn] = useState(false);
     const [diceValue, setDiceValue] = useState(0);
