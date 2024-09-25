@@ -13,7 +13,7 @@ export function createHomeHeaderElement(){
 
     useEffect(() =>{
         getResources().then((response) => {
-            setResources(`Recursos: Tokens:${response.tokens} | Energía:${response.energy} | Maggi:${response.maggi.quantity} | Ricostilla:${response.ricostilla.quantity}`)
+            setResources(`Recursos: Tokens:${response.tokens} | Energía:${response.energy}`)
         });
     },[])
 
