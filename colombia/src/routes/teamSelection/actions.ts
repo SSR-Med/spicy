@@ -30,11 +30,7 @@ export async function createTeamCard(reqBody:Record<string,any>) {
                 Authorization: `Bearer ${Cookies.get("token")}`
             }
         });
-        Swal.fire({
-            icon: 'success',
-            title: 'Unidad agregada al equipo',
-            text: response.data.message
-        })
+        return response.data;
     } catch (error:any) {
         Swal.fire({
             icon: 'error',
