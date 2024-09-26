@@ -22,3 +22,39 @@ export const getCardsByUser = async () => {
         return []
     }
 };
+
+export const deleteTeamCard = async (id: number) => {
+    try {
+        const response = await axios.delete(`${API_URL}/teamCard/${id}`, {
+            headers : {
+                Authorization: `Bearer ${Cookies.get("token")}`
+            }
+        });
+        return response.data;
+    } catch (error: any) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: error.response.data.message
+        });
+        return []
+    }
+};
+
+export const getTeamCard = async (id: number) => {
+    try {
+        const response = await axios.get(`${API_URL}/teamCard/${id}`, {
+            headers : {
+                Authorization: `Bearer ${Cookies.get("token")}`
+            }
+        });
+        return response.data;
+    } catch (error: any) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: error.response.data.message
+        });
+        return []
+    }
+};

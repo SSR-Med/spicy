@@ -14,7 +14,6 @@ import { useBattle } from "../../hooks/useBattle";
 //Helpers
 import { getEnemiesByMission } from "./actions";
 import { getTeamCards } from "../teamSelection/actions";
-import { PlaylistRemove } from "@mui/icons-material";
 
 export default function Battle() {
   const { playerTeam, setPlayerTeam, enemyTeam, setEnemyTeam } = useBattle();

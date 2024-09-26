@@ -10,7 +10,7 @@ interface BattleTeamProps {
   attack: number;
   defense: number;
   evasion: number;
-  key: number;
+  id: number;
 }
 
 export function CreateBattleTeamCard({
@@ -20,6 +20,7 @@ export function CreateBattleTeamCard({
   attack,
   defense,
   evasion,
+  id
 } : BattleTeamProps) {
   const { choiceTurn, setChoiceTurn, setPlayerChoice, setAttackChoiceTurn } =
     useBattle();
@@ -32,7 +33,7 @@ export function CreateBattleTeamCard({
       {isSelection ? (
         <img
           src={staticUrlCard(urlImage)}
-          onClick={() => handleRedirect("/team", "")}
+          onClick={() => handleRedirect("/team/selection/", id)}
         />
       ) : (
         <img

@@ -26,12 +26,16 @@ export default function TeamSelection() {
           setUserTeam(cards);
         } else {
           getCardsByUser().then((cards) => {
-            cards.slice(4).forEach((card: {id: string, id_user: string}) => {
-              createTeamCard({userId: Number(card.id_user), userCardId: Number(card.id)}).then((response) => console.log(response));
+            let teamSize = 0;
+            cards.forEach((card: {id: string, id_user: string}) => {
+              if (teamSize < 4) {
+                createTeamCard({userId: Number(card.id_user), userCardId: Number(card.id)}).then((response) => console.log(response));
+                teamSize += 1;
+              }
             });
           });
         }
-      });
+      })
     }
   }, []);
 
@@ -56,6 +60,7 @@ export default function TeamSelection() {
             attack={teamCard.cardxuser.attack}
             defense={teamCard.cardxuser.defense}
             evasion={teamCard.cardxuser.evasion}
+            id={teamCard.id}
             key={teamCard.id}
             />
           )}

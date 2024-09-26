@@ -6,26 +6,31 @@ import "/src/static/css/team/team.css"
 // Components
 import { createHomeFooter } from "../../components/home/HomeComponent"
 import { createTeamCardGroup } from "../../components/team/TeamComponent"
-export default function Team(){
+
+interface TeamProps {
+    isSelection: boolean,
+}
+
+export default function Team({ isSelection }: TeamProps){
     //Page
     const [page, setPage] = useState(1);
 
     return (
         <div className="team">
-            <main className="team-main">
+            <main className="team-main" style={{height: isSelection? "100%" : "90%"}}>
                 <div className="team-main-container">
-                    {createTeamCardGroup(page)}
-                    <div className='team-main-pagination'>
-                        <Pagination count={2} color="primary" page={page}
+                    {isSelection? createTeamCardGroup(page, true) : createTeamCardGroup(page, false)}
+                </div>
+                <div className='team-main-pagination'>
+                        <Pagination count={4} color="primary" page={page}
                         onChange={
                             (event, newPage) => {
                                 setPage(newPage);
                             }
                         }/>
                     </div>
-                </div>
             </main>
-            {createHomeFooter()}
+            {isSelection ? null : createHomeFooter()}
         </div>
     )
 }

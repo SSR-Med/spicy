@@ -59,7 +59,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/team",
-    element: <Team />,
+    element: <Team isSelection={false}/>,
+  },
+  {
+    path: "/team/selection/:teamCardId",
+    element: <Team isSelection={true}/>,
   },
   {
     path: "/team/:userCardId",
