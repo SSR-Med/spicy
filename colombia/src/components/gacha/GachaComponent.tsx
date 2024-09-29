@@ -2,7 +2,6 @@
 import { Button, Modal, Typography, Box, Tooltip } from '@mui/material';
 import { useState } from 'react';
 // Helpers
-import { handleRedirect } from "../../helpers/HandleRedirect";
 import { getGachaCards } from '../../helpers/API/card/GachaHelper';
 // Themes
 import { buttonThemeGacha, ModalThemeGacha, ModalTextThemeGacha, tooltipThemeGacha } from "../../styles/gacha/GachaStyle"
