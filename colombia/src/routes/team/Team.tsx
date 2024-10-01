@@ -13,7 +13,7 @@ interface TeamProps {
 
 export default function Team({ isSelection }: TeamProps){
     //Page
-    const [page, setPage] = useState(1);
+    const [page, setPage] = useState<number>(1);
 
     return (
         <div className="team">

@@ -56,7 +56,7 @@ export function createTeamCardGroup(page: number, isSelection: boolean) {
   }, []);
 
   // Fake pages
-  const pages: { [key: number]: { info: {id: string, level: number, xp: number, attack: number, evasion: number, defense: number, health: number, id_user: string, card: { name: string }}[] } } = {
+  let pages: { [key: number]: { info: {id: string, level: number, xp: number, attack: number, evasion: number, defense: number, health: number, id_user: string, card: { name: string }}[] } } = {
     1: {
       info: userCards.slice(0, 4),
     },
