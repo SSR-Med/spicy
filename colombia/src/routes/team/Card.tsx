@@ -23,7 +23,15 @@ export default function Card(){
                 setUserCard(card);
             })
         }
-    }, [])
+
+    }, []);
+
+    useEffect(() => {
+        const userCardId = Number(window.location.pathname.split("/")[2]);
+        getUserCard(userCardId).then((card) => {
+            setUserCard(card);
+        })
+    },[showLevelUp]);
 
     return (
         <div className="team">
