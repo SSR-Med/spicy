@@ -28,6 +28,9 @@ export default function Battle() {
 
     if (playerTeam.length === 0) {
       getTeamCards().then((cards) => {
+        if(cards.length > 4) {
+          cards = cards.slice(0, 4);
+        }
         setPlayerTeam(cards);
       });
     }
