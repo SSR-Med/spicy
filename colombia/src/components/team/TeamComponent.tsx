@@ -44,7 +44,10 @@ export function createTeamCard(urlImage: string, userCardId: string, isSelection
 }
 
 // Create all cards
-export function createTeamCardGroup(page: number, isSelection: boolean) {
+export function createTeamCardGroup(page: number, isSelection: boolean,
+  amountPages: number
+) {
+  console.log(amountPages)
   const [userCards, setUserCards] = useState<{id: string, level: number, xp: number, attack: number, evasion: number, defense: number, health: number, id_user: string, card: { name: string }}[]>([]);
 
   useEffect(() => {
@@ -55,21 +58,21 @@ export function createTeamCardGroup(page: number, isSelection: boolean) {
     }
   }, []);
 
-  // Fake pages
-  const pages: { [key: number]: { info: {id: string, level: number, xp: number, attack: number, evasion: number, defense: number, health: number, id_user: string, card: { name: string }}[] } } = {
-    1: {
-      info: userCards.slice(0, 4),
-    },
-    2: {
-      info: userCards.slice(4, 8),
-    },
-    3: {
-      info: userCards.slice(8, 12),
-    },
-    4: {
-      info: userCards.slice(12),
-    }
-  };
+  let pages: { [key: number]: { info: { id: string, level: number, xp: number, attack: number, evasion: number, defense: number, health: number, id_user: string, card: { name: string } }[] } } = {};
+  
+  for(let i = 1; i <= amountPages; i++) {
+    const startIndex = (i - 1) * 4;
+    const endIndex = Math.min(startIndex + 4, userCards.length);
+    pages[i] = {
+      info: userCards.slice(startIndex, endIndex),
+    };
+  }
+  if(amountPages === 0) {
+    pages[1] = {
+      info: [],
+    };
+  }
+
 
   return (
     <div className="team-secondary-container">
