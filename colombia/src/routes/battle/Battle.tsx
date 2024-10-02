@@ -61,6 +61,7 @@ export default function Battle() {
             <CreateBattleTeamCard
               key={card.id}
               isSelection={false}
+              id={card.id}
               urlImage={card.cardxuser.card.name}
               hp={card.cardxuser.health}
               attack={card.cardxuser.attack}

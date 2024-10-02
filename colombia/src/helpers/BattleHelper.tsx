@@ -110,8 +110,8 @@ export const enemyAttack = (
 
 export const playerDefense = (
     defenseChoice: string,
-    playerTeam: {name: string, hp: number, attack: number, defense: number, evasion: number}[],
-    setPlayerTeam: (team: {name: string, hp: number, attack: number, defense: number, evasion: number}[]) => void,
+    playerTeam: {id: number, cardxuser: {attack: number, evasion: number, defense: number, health: number, card: { name: string }}}[],
+    setPlayerTeam: (team: {id: number, cardxuser: {attack: number, evasion: number, defense: number, health: number, card: { name: string }}}[]) => void,
     attackValue: number,
     setDamage: (value: number) => void,
     setPlayerDefenseTurn: (value: boolean) => void,
@@ -124,21 +124,21 @@ export const playerDefense = (
     switch(defenseChoice) {
         case "defendió":
             const defenderIndex = randomCardIndex(playerTeam.length);
-            const defenseValue = playerTeam[defenderIndex].defense;
+            const defenseValue = playerTeam[defenderIndex].cardxuser.defense;
             if (attackValue > (defenseValue + diceValue)) {
                 const damage = attackValue - (defenseValue + diceValue);
                 let newPlayerTeamState = [...playerTeam];
                 let defeatedMembers = 0;
-                if ((newPlayerTeamState[defenderIndex].hp - damage) < 0) {
-                    newPlayerTeamState[defenderIndex].hp = 0;
+                if ((newPlayerTeamState[defenderIndex].cardxuser.health - damage) < 0) {
+                    newPlayerTeamState[defenderIndex].cardxuser.health = 0;
                     newPlayerTeamState.forEach((member) => {
-                        if(member.hp == 0) {
+                        if(member.cardxuser.health == 0) {
                             defeatedMembers += 1;
                         }
                     });
                     newPlayerTeamState.splice(defenderIndex, 1);
                 } else {
-                    newPlayerTeamState[defenderIndex].hp -= damage;
+                    newPlayerTeamState[defenderIndex].cardxuser.health -= damage;
                 }
                 setPlayerTeam(newPlayerTeamState);
                 setDamage(damage);
@@ -152,20 +152,20 @@ export const playerDefense = (
             break;
         case "evadió":
             const evaderIndex = randomCardIndex(playerTeam.length);
-            const evasionValue = playerTeam[evaderIndex].evasion;
+            const evasionValue = playerTeam[evaderIndex].cardxuser.evasion;
             if (attackValue > (evasionValue + diceValue)) {
                 let newPlayerTeamState = [...playerTeam];
                 let defeatedMembers = 0;
-                if ((newPlayerTeamState[evaderIndex].hp - attackValue) < 0) {
-                    newPlayerTeamState[evaderIndex].hp = 0;
+                if ((newPlayerTeamState[evaderIndex].cardxuser.health - attackValue) < 0) {
+                    newPlayerTeamState[evaderIndex].cardxuser.health = 0;
                     newPlayerTeamState.forEach((member) => {
-                        if(member.hp == 0) {
+                        if(member.cardxuser.health == 0) {
                             defeatedMembers += 1;
                         }
                     });
                     newPlayerTeamState.splice(evaderIndex, 1);
                 } else {
-                    newPlayerTeamState[evaderIndex].hp -= attackValue;
+                    newPlayerTeamState[evaderIndex].cardxuser.health -= attackValue;
                 }
                 setPlayerTeam(newPlayerTeamState);
                 setDamage(attackValue);
