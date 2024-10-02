@@ -43,9 +43,9 @@ export const getUserCard = async (userCardId : number ) => {
 }
 
 // Fetch items by user (NEW FUNCTION)
-export const getItemsByUser = async (userId : number) => {
+export const getItemsByUser = async () => {
     try {
-        const response = await axios.get(`${API_URL}/user/item/${userId}`, {
+        const response = await axios.get(`${API_URL}/user/item/`, {
             headers: {
                 Authorization: `Bearer ${Cookies.get("token")}`
             }
