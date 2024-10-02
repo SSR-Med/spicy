@@ -1,4 +1,4 @@
-# Proyecto de Cartas de Usuario
+# Proyecto Gacha comidas colombianas
 
 Este proyecto es una aplicación web gacha, donde los usuarios pueden gestionar sus cartas que ganen en el casino o combates, también los usuarios pueden subir de nivel sus cartas utilizando ítems específicos como Maggi y Ricostilla que son recompensas ganadas en los diferentes niveles. La aplicación permite seleccionar ítems y acumular XP para mejorar las estadísticas de las cartas y poder enfrentarse en combates más difíciles con los diferentes niveles y jefes que tiene el juego.
 
