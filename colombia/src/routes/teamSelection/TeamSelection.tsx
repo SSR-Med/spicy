@@ -23,6 +23,9 @@ export default function TeamSelection() {
     if (userTeam.length === 0) {
       getTeamCards().then((cards) => {
         if (cards.length > 0) {
+          if (cards.length > 4) {
+            cards = cards.slice(0, 4);
+          }
           setUserTeam(cards);
         } else {
           getCardsByUser().then((cards) => {
